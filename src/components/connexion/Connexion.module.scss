@@ -1,0 +1,61 @@
+.connexion {
+    margin-block: 10%;
+    margin-inline: 2rem;
+    color: #fff;
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: fit-content;
+        font-size: 1.6rem;
+        padding: 3rem 8rem 3rem 2rem;
+        margin: auto;
+        border-radius: .5rem;
+        gap: 2rem;
+        background-color: var(--dark-blue);
+
+        div {
+            display: flex;
+            flex-direction: column;
+            gap: .5rem;
+            input {
+                padding: .4rem;
+                background-color: transparent;
+                color: white;
+                border: none;
+                font-size: 1.6rem;
+                outline: none;
+                border-bottom: 2px solid #fff;
+            }
+        }
+        span {
+            display: inline-flex;
+            align-self: flex-start;
+            gap: 1rem;
+            margin-left: 1rem;
+
+            input[type='checkbox'] {
+                position: relative;
+                width: 1.2rem;
+            }
+        }
+        button {
+            align-self: flex-start;
+            background-color: transparent;
+            font-size: 1.4rem;
+            padding: .7rem 1.4rem;
+            margin-left: 1rem;
+            color: #fff;
+            border: solid 2px #fff;
+            transition: background-color ease-in .25s,
+                        border-color ease-in .25s;
+
+            &:hover {
+                background-color: var(--light-blue);
+                border-color: var(--light-blue) ;
+            }
+        }
+    }
+   
+}
