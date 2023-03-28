@@ -6,9 +6,10 @@
     width: fit-content;
     margin-top: 5rem;
     border-radius: 10px;
-    background-color: var(--light-blue);
-    color: white;
-    padding: 2rem;
+    background-color: transparent;
+    border: solid 5px var(--light-blue);
+    color: var(--dark-primary);
+    padding-inline: 2rem;
     gap: 2rem;
 
 }
@@ -20,16 +21,19 @@
     text-transform: capitalize;
     font-size: 1.4rem;
     gap: 1rem;
-    margin-left: 4rem;
-
-    
+    margin-left: 3rem;
+    color: var(--dark-primary);
+    background-color:  var(--background-body);
+    width: fit-content;
+    transform: translateY(-60%);
+    padding-inline: 3rem;
         i {
             padding: .5rem;
             border: none;
             font-size: 1.1rem;
-            color: var(--light-blue);
+            color: #fff;
             border-radius: 50%;
-            background-color: #fff;
+            background-color: var(--dark-primary);
         }
     
 
@@ -63,16 +67,20 @@
     display: flex;
     justify-content: center;
     gap: 1rem;
-
+    margin: auto;
+    width: fit-content;
+    transform: translateY(50%);
+    background-color: #fff;
+    padding-inline: 3rem;
     span {
         display: block;
         width: 1rem;
         height: 1rem;
         border-radius: 50%;
-        background-color: white;
+        background-color: var(--light-blue);
 
     }
     span.active {
-        background-color: #123969;
+        background-color: var(--dark-primary);
     }
 }

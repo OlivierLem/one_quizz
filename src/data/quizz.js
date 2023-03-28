@@ -9,33 +9,32 @@ export const quizz = [
             'géographie',
             'science'
         ],
-        category: 'etudes',
+        category: 'etude',
         play: 1200
     },
     {   
         type: [
-            'qcm',
-            'gfhghgfhfhg'
+            'QCM',
+            'test'
         ],
         themes: [
-            'histoire',
-            'géographie',
-            'science'
+            'valorant',
+            'rocket league'
         ],
-        category: 'etudes',
+        category: 'jeux vidéo',
         play: 40
     },
     {   
         type: [
             'qcm',
-            'datdssdsdsdes'
+            'test'
         ],
         themes: [
             'histoire',
             'géographie',
             'science'
         ],
-        category: 'etudes',
+        category: 'etude',
         play: 500
     }
 ]

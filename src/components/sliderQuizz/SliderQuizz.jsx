@@ -3,7 +3,7 @@ import { useState } from "react";
 import { quizz } from "../../data/quizz";
 import CardQuizz from '../cardQuizz/CardQuizz';
 
-export default function SliderQuizz () {
+export default function SliderQuizz ({online, children}) {
 
     const [page, setPage] = useState(1);
     const maxPage = 2
@@ -29,7 +29,7 @@ export default function SliderQuizz () {
     return (
         <div className={`${styles.slider}`}>
             <div className={`${styles.title}`}>
-                <h3>Quizz</h3>
+                <h3>{children}</h3>
                 <i className="fa-solid fa-arrow-right"></i>
             </div>
             <div className={`${styles.slider_content}`}>
@@ -39,11 +39,11 @@ export default function SliderQuizz () {
                         quizz.map((q, i) => { 
                             if(i < 3  && page === 1) {
                                 return (
-                                    <CardQuizz quizz={q} key={i}/>
+                                    <CardQuizz quizz={q} online={online} key={i}/>
                                 ) 
                             } else if (i >= 3 && i < 6  && page === 2) {
                                 return (
-                                    <CardQuizz quizz={q} key={i} />
+                                    <CardQuizz quizz={q} online={online} key={i} />
                                 )
                             }
                             

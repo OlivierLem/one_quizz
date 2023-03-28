@@ -8,7 +8,8 @@ function App() {
   return (
     <div className={`d-flex flex-column ${styles.appContainer}`}>
         <Header />
-        <SliderQuizz />
+        <SliderQuizz online={false} > Quizz </SliderQuizz>
+        <SliderQuizz online={true} > Quizz en attentes</SliderQuizz>
         <SliderThemes />
         <Footer />
     </div>

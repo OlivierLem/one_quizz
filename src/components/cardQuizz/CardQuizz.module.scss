@@ -4,8 +4,9 @@
     flex-direction: column;
     text-transform: capitalize;
     justify-content: space-between;
-    background-color: rgb(40, 34, 85);
+    background: url(../../assets/images/etudes.jpg);
     background-size: 100%;
+    color: white;
     width: 25rem;
     overflow: hidden;
     aspect-ratio: 16 / 9;
@@ -14,6 +15,77 @@
     box-shadow: 0px 8px 23px rgba(0, 0, 0, 0.25),
     inset 0px -76px 70px -26px rgba(0, 0, 0, 0.7);
 
+    
+    & > div:first-of-type {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        margin-top: .5rem;
+        font-size: 1.2rem;
+        align-items: center;
+        padding-inline: 1rem;
+        & > div {
+            display: flex;
+            align-items: center;
+            height: 3rem;
+            padding-inline: 1.5rem;
+            border-radius: .5rem;
+            background-color: rgba($color: #000000, $alpha: .5);
+        }
+
+        i {
+            font-size: 2rem;
+        }
+    }
+
+    .cardContent_bottom {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-inline: 1rem;
+        & > div {
+            display: flex;
+            flex-direction: column;
+            & > div:first-of-type {
+                margin-bottom: -1rem;
+            }
+
+
+            & > div{
+                display: flex;
+                gap: .2rem;
+
+                & > p {
+                    font-size: .8rem;
+                    padding: .5rem 1rem;
+                    border-radius: 1rem;
+                    z-index: 10;
+                    background-color: rgba($color: #000000, $alpha: .5);
+                    transition: background-color;
+                    &:hover {
+                        background-color: var(--primary-opacity);
+                    }
+                }
+            }
+        }
+
+        & > button {
+            align-self: flex-end;
+            height: fit-content;
+            margin-bottom: 1rem;
+            padding: .5rem 1rem;
+            border-radius: .2rem;
+            font-weight: 600;
+            background-color: var(--primary-opacity);
+            color: white;
+            border: none;
+            z-index: 10;
+            &:hover {
+                background-color: var(--primary);
+            }
+        }
+    }
+  
     &:hover {
         box-shadow: 0px 15px 23px rgba(0, 0, 0, 0.2),
                 inset 0px -80px 100px -26px rgba(0, 0, 0, 0.7);
@@ -67,5 +139,6 @@
         transform: translateY(-20%) scale(1.2);
     }
 }
+
 
 
