@@ -1,0 +1,31 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    margin-block: 1rem;
+    gap: 2rem;
+
+    & > div:nth-of-type(odd) {
+        border: solid 5px var(--dark-primary);
+        color: var(--light-blue);
+
+        div:last-of-type span {
+            background-color: var(--light-blue);
+
+            &.active {
+                background-color: var(--dark-primary);
+            }
+        }
+    }
+    & > div:nth-of-type(even) {
+        border: solid 5px var(--light-blue);
+        color: var(--dark-primary);
+
+        div:last-of-type span {
+            background-color: var(--dark-primary);
+
+            &.active {
+                background-color: var(--light-blue);
+            }
+        }
+    }
+}

@@ -21,7 +21,7 @@ export default function SliderQuizz ({online, children}) {
     const paginationDisplay = (max) => {
         const pagination = []
         for (let i = 1; i <= max; i++) {
-            pagination.push( <span key={i} className={`${page === i ? styles.active : ''}`}></span> )
+            pagination.push( <span key={i} className={`${page === i ? 'active' : '' }`}></span> )
         }
         return pagination
     }

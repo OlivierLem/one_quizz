@@ -7,11 +7,8 @@
     margin-top: 5rem;
     border-radius: 10px;
     background-color: transparent;
-    border: solid 5px var(--light-blue);
-    color: var(--dark-primary);
     padding-inline: 2rem;
     gap: 2rem;
-
 }
 
 .title {
@@ -70,7 +67,7 @@
     margin: auto;
     width: fit-content;
     transform: translateY(50%);
-    background-color: #fff;
+    background-color:  var(--background-body);
     padding-inline: 3rem;
     span {
         display: block;
