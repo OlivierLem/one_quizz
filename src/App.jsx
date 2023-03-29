@@ -7,7 +7,7 @@ import Header from "./components/header/Header";
 function App() {
   return (
     <div className={`d-flex flex-column ${styles.appContainer}`}>
-        <Header />
+        <Header log={true} />
         {/* <Acceuil /> */}
         <Connexion />
         <Footer />

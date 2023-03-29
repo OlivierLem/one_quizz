@@ -19,6 +19,13 @@ export default function Connexion () {
                 </span>
                 <button>Se connecter</button>
             </form>
+            <div>
+                <div>
+                    <span></span>
+                    <span></span>
+                </div>
+                
+            </div>
         </div>
     )
 }

@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import styles from './Header.module.scss'
 
-export default function Header () {
+export default function Header ({log}) {
 
-    const [log, setLog] = useState(false)
+    //const [log, setLog] = useState(false)
 
     return (
         <div className={`${styles.header}`} >

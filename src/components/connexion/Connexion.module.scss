@@ -1,17 +1,19 @@
 .connexion {
+    position: relative;
+    width: fit-content;
     margin-block: 10%;
-    margin-inline: 2rem;
+    margin-inline: auto;
+    border-radius: .5rem;
+    overflow: hidden;
     color: #fff;
     form {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        width: fit-content;
         font-size: 1.6rem;
         padding: 3rem 8rem 3rem 2rem;
         margin: auto;
-        border-radius: .5rem;
         gap: 2rem;
         background-color: var(--dark-blue);
 
@@ -54,6 +56,40 @@
             &:hover {
                 background-color: var(--light-blue);
                 border-color: var(--light-blue) ;
+            }
+        }
+    }
+
+    & > div {
+        position: absolute;
+        width: 3.5rem;
+        height: 100%;
+        top: 0;
+        right: 0;
+        background-color: var(--primary);
+        transform: translateX(1rem);
+        transition: transform ease-in .2s;
+       
+        span {
+            position: absolute;
+            top: 3rem;
+            left: 25%;
+            width: 3px;
+            height: 3rem;
+            border-radius: 2rem;
+            background-color: #fff;
+            transition: transform ease-in .2s,
+                        opacity ease-in .2s;
+            &:last-of-type {
+                left: 45%;
+            }
+        }
+
+        &:hover {
+            transform: translateX(0);
+            span {
+                transform: translateX(.5rem);
+                opacity: .7;
             }
         }
     }
