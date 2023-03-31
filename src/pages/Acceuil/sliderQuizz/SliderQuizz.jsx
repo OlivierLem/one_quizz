@@ -1,7 +1,7 @@
 import styles from './SliderQuizz.module.scss'
 import { useState } from "react";
-import { quizz } from "../../data/quizz";
-import CardQuizz from '../cardQuizz/CardQuizz';
+import { quizz } from "../../../data/quizz";
+import CardQuizz from './components/CardQuizz';
 
 export default function SliderQuizz ({online, children}) {
 

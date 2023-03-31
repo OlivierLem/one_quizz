@@ -1,5 +1,5 @@
-import SliderQuizz from "../sliderQuizz/SliderQuizz";
-import SliderThemes from "../sliderThemes/SliderThemes";
+import SliderQuizz from "./sliderQuizz/SliderQuizz";
+import SliderThemes from "./sliderThemes/SliderThemes";
 import styles from './Acceuil.module.scss';
 
 

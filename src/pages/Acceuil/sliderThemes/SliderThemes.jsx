@@ -1,6 +1,6 @@
-import CardTheme from "../cardTheme/CardTheme";
+import CardTheme from "./components/CardTheme";
 import styles from './SliderThemes.module.scss'
-import { themes } from "../../data/themes";
+import { themes } from "../../../data/themes";
 import { useState } from "react";
 
 export default function SliderThemes () {

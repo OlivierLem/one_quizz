@@ -6,11 +6,11 @@ export default function Footer () {
             <div className={`${styles.footer_content}`}>
                 <p>Logo</p>
                 <ul>
-                    <li className={`${styles.active}`}>Thémes</li>
+                    <li className={`${styles.active}`}>Théme</li>
                     <li><a href="#">Histoire</a> </li>
-                    <li><a href="#"> Harry potter</a></li>
-                    <li><a href="#"> One piece </a></li>
-                    <li><a href="#"> developpement web </a></li>
+                    <li><a href="#">Harry potter</a></li>
+                    <li><a href="#">One piece</a></li>
+                    <li><a href="#">Developpement web</a></li>
                 </ul>
                 <ul>
                     <li className={`${styles.active}`}>Catégorie</li>
