@@ -41,7 +41,7 @@ export default function Connexion () {
                 </div>
                 <form action="">
                     <h3>Inscription</h3>
-                    <i className="fa-solid fa-xmark"
+                    <i className={`fa-solid fa-xmark ${styles.cross}`}
                        onClick={handleRemove}></i>
                     <div>
                         <input type="text" name="email" required />

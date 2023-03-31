@@ -178,6 +178,12 @@
             padding: 3rem 1rem;
             background: transparent;
 
+            .cross {
+                transition: transform ease-in .25s;
+                &:hover {
+                    transform: scale(1.15);
+                }
+            }
             
             button {
                 margin-left: 3rem;
