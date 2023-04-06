@@ -14,7 +14,7 @@ export default function Connexion () {
         email: '',
         remember: false
     }
-
+     
     const shemaConnexion = yup.object({
         pseudo: yup
             .string()
@@ -25,6 +25,7 @@ export default function Connexion () {
             .required('Ce champ est vide')
             .matches(/^toto25$/, 'Pas le bon mots de passe'),
     })
+
     const shemaInscription = yup.object({
         pseudo: yup
             .string()
@@ -67,6 +68,8 @@ export default function Connexion () {
     function submit (values) {
         console.log(values);
     }
+
+    // ! Message d'erreur non affiché pour le formulaire d'inscription
 
     return (
         <div className={`${styles.connexion}  ${reveal && styles.active}`}>
