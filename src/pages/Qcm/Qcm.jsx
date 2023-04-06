@@ -8,7 +8,6 @@ export default function Qcm ({qcm: {question, reponses}}) {
                <h3>{question}</h3>
                <p>5</p>
             </div>
-            
             <div>
                 {
                     reponses.map((r, i) => (

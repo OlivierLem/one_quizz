@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import styles from './Header.module.scss'
+import { NavLink } from 'react-router-dom'
 
 export default function Header ({log}) {
 
@@ -7,24 +8,24 @@ export default function Header ({log}) {
 
     return (
         <div className={`${styles.header}`} >
-            <p>Logo</p>
+            <NavLink to='/'>Logo</NavLink>
             <nav>
-                <a href="#" className={`${styles.active}`}>Acceuil</a>
-                <a href="#">Quizz</a>
-                <a href="#">Quizz en lignes</a>
-                <a href="#">Thémes</a>
+                <NavLink to='/' >Acceuil</NavLink>
+                <NavLink to='/quizz'>Quizz</NavLink>
+                <NavLink to='/quizz'>Quizz en lignes</NavLink>
+                <NavLink to='themes'>Thémes</NavLink>
             </nav>
             {
                 log !== true ?
                 (
                     <div>
-                        <a href="#">Connexion</a>
+                        <NavLink to='/connexion' >Connexion</NavLink>
                         <button>Incription</button>
                     </div>
                 ) : 
                 (
                     <div>
-                        <a href="#">john62</a>
+                        <NavLink to='/inscription'>john62</NavLink>
                         <i class="fa-regular fa-user"></i>
                     </div>
                 )

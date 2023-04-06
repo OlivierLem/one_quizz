@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import styles from './CardQuizz.module.scss'
 
 export default function CardQuizz ({quizz, online}) {
@@ -53,8 +54,10 @@ export default function CardQuizz ({quizz, online}) {
                             ))
                         }
                     </div>
-                </div>                
-                <button>Rejoindre</button>
+                </div>      
+                <button>
+                    <NavLink to='/quizz'>Rejoindre</NavLink>
+                </button>          
             </div>
             
         </div>
