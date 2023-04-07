@@ -43,7 +43,7 @@ export const router = createBrowserRouter([
             }, 
             {
                 path: '/quizz',
-                element: <Qcm qcm={qcmData} />
+                element: <Qcm qcm={qcmData} timer='10' />
             }
             /* {
                 path: '/inscription',
