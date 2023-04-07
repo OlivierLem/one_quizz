@@ -2,6 +2,7 @@ import styles from './SliderQuizz.module.scss'
 import { useState } from "react";
 import { quizz } from "../../../data/quizz";
 import CardQuizz from './components/CardQuizz';
+import { NavLink } from 'react-router-dom';
 
 export default function SliderQuizz ({online, children}) {
 
@@ -30,7 +31,8 @@ export default function SliderQuizz ({online, children}) {
         <div className={`${styles.slider}`}>
             <div className={`${styles.title}`}>
                 <h3>{children}</h3>
-                <i className="fa-solid fa-arrow-right"></i>
+                <NavLink to='/quizz'><i className="fa-solid fa-arrow-right"></i></NavLink>
+                
             </div>
             <div className={`${styles.slider_content}`}>
                 <i className="fa-solid fa-chevron-left"  onClick={previousPage} ></i>

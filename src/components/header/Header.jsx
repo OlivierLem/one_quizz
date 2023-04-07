@@ -12,8 +12,8 @@ export default function Header ({log}) {
             <nav>
                 <NavLink to='/' >Acceuil</NavLink>
                 <NavLink to='/quizz'>Quizz</NavLink>
-                <NavLink to='/quizz'>Quizz en lignes</NavLink>
-                <NavLink to='themes'>Thémes</NavLink>
+                <NavLink to='/groupes'>Groupes</NavLink>
+                <NavLink to='/themes'>Thémes</NavLink>
             </nav>
             {
                 log !== true ?
@@ -25,8 +25,19 @@ export default function Header ({log}) {
                 ) : 
                 (
                     <div>
-                        <NavLink to='/inscription'>john62</NavLink>
-                        <i class="fa-regular fa-user"></i>
+                        <div className={`${styles.createButton}`}>
+                            <button>Créer</button>
+                            <span className={`${styles.active}`}>
+                                <NavLink to='/creer'>Créer un quizz</NavLink>
+                                <NavLink to='/creer'>Créer un cours</NavLink>
+                                <NavLink to='/creer'>Créer une question</NavLink>
+                                <NavLink to='/demande_favoris'>Demande favoris</NavLink>
+                                <NavLink to='/creation'>Voir vos création</NavLink>
+                            </span>
+                        </div>
+                        
+                        <NavLink to='/profil'>john62</NavLink>
+                        <i className="fa-regular fa-user"></i>
                     </div>
                 )
 

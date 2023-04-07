@@ -2,6 +2,7 @@ import CardTheme from "./components/CardTheme";
 import styles from './SliderThemes.module.scss'
 import { themes } from "../../../data/themes";
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 
 export default function SliderThemes () {
 
@@ -30,7 +31,7 @@ export default function SliderThemes () {
         <div className={`${styles.slider}`}>
             <div className={`${styles.title}`}>
                 <h3>Thémes favoris</h3>
-                <i className="fa-solid fa-arrow-right"></i>
+                <NavLink to='/themes'><i className="fa-solid fa-arrow-right"></i></NavLink>
             </div>
             <div className={`${styles.slider_content}`}>
                 <i className="fa-solid fa-chevron-left"  onClick={previousPage} ></i>

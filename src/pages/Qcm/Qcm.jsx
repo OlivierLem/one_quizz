@@ -15,7 +15,6 @@ export default function Qcm ({qcm: {question, reponses}, timer}) {
 
     function changeTime () {
         setTime(time - 1)
-        console.log(time);
     }
 
     return (

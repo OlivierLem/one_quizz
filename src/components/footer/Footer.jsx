@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom'
 import styles from './Footer.module.scss'
 
 export default function Footer () {
@@ -7,23 +8,23 @@ export default function Footer () {
                 <p>Logo</p>
                 <ul>
                     <li className={`${styles.active}`}>Théme</li>
-                    <li><a href="#">Histoire</a> </li>
-                    <li><a href="#">Harry potter</a></li>
-                    <li><a href="#">One piece</a></li>
-                    <li><a href="#">Developpement web</a></li>
+                    <li><NavLink to='/quizz'>Histoire</NavLink> </li>
+                    <li><NavLink to='/quizz'>Harry potter</NavLink></li>
+                    <li><NavLink to='/quizz'>One piece</NavLink></li>
+                    <li><NavLink to='/quizz'>Developpement web</NavLink></li>
                 </ul>
                 <ul>
                     <li className={`${styles.active}`}>Catégorie</li>
-                    <li><a href="#">Sport</a></li>
-                    <li><a href="#">Film et séries</a></li>
-                    <li><a href="#">Etudes</a></li>
-                    <li><a href="#">jeux vidéo</a></li>
+                    <li><NavLink to='/quizz'>Sport</NavLink></li>
+                    <li><NavLink to='/quizz'>Film et séries</NavLink></li>
+                    <li><NavLink to='/quizz'>Etudes</NavLink></li>
+                    <li><NavLink to='/quizz'>jeux vidéo</NavLink></li>
                 </ul>
                 <ul>
-                    <li><a href="#">Mentions légales</a></li>
-                    <li><a href="#">Politique de confidentialités</a></li>
-                    <li><a href="#">Aides et informations</a></li>
-                    <li><a href="#">Contact</a></li>   
+                    <li><NavLink to='/mentions'>Mentions légales</NavLink></li>
+                    <li><NavLink to='/confidentialite'>Politique de confidentialités</NavLink></li>
+                    <li><NavLink to='/aides'>Aides et informations</NavLink></li>
+                    <li><NavLink to='/contact'>Contact</NavLink></li>   
                 </ul>
             </div>
             <div className={`${styles.footer_bottom}`}>

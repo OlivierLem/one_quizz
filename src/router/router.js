@@ -44,11 +44,36 @@ export const router = createBrowserRouter([
             {
                 path: '/quizz',
                 element: <Qcm qcm={qcmData} timer='10' />
-            }
+            },
             /* {
-                path: '/inscription',
-                element: <Inscription />
-            } */
+                path: '/groupes',
+                element: <GroupesPage />
+            },
+            {
+              path: '/themes',
+              element: <ThemesPage />
+            },
+            {
+              path: '/profil',
+              element: <ProfilPage />
+            },
+            {
+              path: '/mentions',
+              element: <MentionsPage />
+            },
+            {
+              path: '/confidentialie',
+              element: <ConfidentialitePage />
+            },
+            {
+              path: '/aides',
+              element: <AidesPage />
+            },
+            {
+              path: '/contact',
+              element: <ContactPage />
+            }    
+            */
         ]
     }
 ])
