@@ -20,14 +20,24 @@ export default function Qcm ({qcm: {question, reponses}, timer}) {
     return (
         <div className={styles.qcm}>
             <div>
-               <p>1/10</p> 
+               <p>1 / 10</p> 
                <h3>{question}</h3>
-               <p> {time} </p>
+               <div className={`${styles.timer}`}>
+                <svg viewBox="0 0 40 40" className={`${styles.timerSvg}`}>
+                    <circle 
+                        className={`${styles.timerSvg__segment}`}
+                        style={{animationDuration: `${timer}s`}} 
+                        cx="20" cy="20" r="16" 
+                    >
+                    </circle>
+                </svg>
+                <p> {time} </p>
+               </div>
             </div>
             <div>
                 {
                     reponses.map((r, i) => (
-                        <button>{r.reponse}</button>
+                        <button key={i}>{r.reponse}</button>
                     ))
                 }
             </div>

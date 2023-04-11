@@ -34,7 +34,6 @@
         p:last-of-type {
             background-color: transparent;
             color: #fff;
-            border: solid 2px #fff;
         }
 
         h3 {
@@ -66,3 +65,35 @@
         }
     }
 }
+
+.timer {
+    position: relative;
+}
+
+.timerSvg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+}
+
+.timerSvg__segment {
+    transform-origin: center;
+    stroke: white;
+    animation: timerSvg linear 10s;
+    fill:transparent;
+    stroke-width:2;
+    stroke-linecap:round;
+    rotate: -90deg;
+  }
+  
+  @keyframes timerSvg {
+    0% {
+        stroke-dasharray: 0, 100;
+    }
+    100% {
+        stroke-dasharray: 100, 0;
+    }
+  }
