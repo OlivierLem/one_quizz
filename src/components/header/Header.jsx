@@ -29,7 +29,7 @@ export default function Header ({log}) {
                             <button>Créer</button>
                             <span className={`${styles.active}`}>
                                 <NavLink to='/creer'>Créer un quizz</NavLink>
-                                <NavLink to='/creer'>Créer un cours</NavLink>
+                                <NavLink to='/creer_cours'>Créer un cours</NavLink>
                                 <NavLink to='/creer'>Créer une question</NavLink>
                                 <NavLink to='/demande_favoris'>Demande favoris</NavLink>
                                 <NavLink to='/creation'>Voir vos création</NavLink>

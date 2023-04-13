@@ -4,6 +4,7 @@ import Acceuil from "../pages/Acceuil/Acceuil";
 import Connexion from "../pages/Connexion/Connexion";
 import Qcm from "../pages/Qcm/Qcm";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import CreerCours from "../pages/CreerCours/CreerCours";
 
 const qcmData = {
     question: "Quelle est la langue utilisé ?",
@@ -44,7 +45,10 @@ export const router = createBrowserRouter([
             {
                 path: '/quizz',
                 element: <Qcm qcm={qcmData} timer='5' />
-            },
+            },{
+              path: '/creer_cours',
+              element: <CreerCours title='cours de conjugaison' />
+            }
             /* {
                 path: '/groupes',
                 element: <GroupesPage />
