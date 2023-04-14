@@ -7,7 +7,7 @@ export default function Header ({log}) {
     //const [log, setLog] = useState(false)
 
     return (
-        <div className={`${styles.header}`} >
+        <header className={`${styles.header}`} >
             <NavLink to='/'>Logo</NavLink>
             <nav>
                 <NavLink to='/' >Acceuil</NavLink>
@@ -43,6 +43,6 @@ export default function Header ({log}) {
 
             }
             
-        </div>
+        </header>
     )
 }

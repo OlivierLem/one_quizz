@@ -7,15 +7,14 @@
     color: white;
     padding-block: .5rem;
     a {
+        position: relative;
         color: white;
 
-        &:hover {
-            text-decoration: underline;
-        }
+        
     }
 
-    a.active {
-        text-decoration: underline; 
+    a.active::before {
+        transform: scaleX(1);
     }
 }
 
