@@ -1,8 +1,8 @@
 import { useState } from "react";
 
-export default function TextComponent ({children, order}) {
+export default function TextComponent ({children, order, isEdit}) {
     // ! probléme pour l'edit
-    const [edit, setEdit] = useState(false)
+    const [edit, setEdit] = useState(isEdit)
     const [content, setContent] = useState(children)
 
     function handleChange (e) {
@@ -12,9 +12,12 @@ export default function TextComponent ({children, order}) {
 
     return (
         <div className="text__component">  
-            <i onClick={() => setEdit(!edit)}
-                className="fa-solid fa-pen-to-square">
-            </i>
+            <div>
+                <i onClick={() => setEdit(!edit)}
+                    className="fa-solid fa-pen-to-square">
+                </i>
+                <i className="fa-solid fa-x"></i>
+            </div>
             {
                 edit === true ? (
                     <div>
@@ -22,6 +25,7 @@ export default function TextComponent ({children, order}) {
                             type="text" 
                             onChange={handleChange}
                             className="editText"
+                            autoFocus
                             value={content}>
                         </textarea>
                         <button onClick={() => setEdit(false)}>valider</button>

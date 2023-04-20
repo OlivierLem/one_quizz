@@ -1,6 +1,7 @@
 import { useState } from "react";
 import TextComponent from "./composant/TextComponent.jsx";
 import TitleComponent from "./composant/TitleComponent.jsx";
+import './CreerCours.scss'
 
 export default function CreerCours ({title}) {
 
@@ -10,17 +11,17 @@ export default function CreerCours ({title}) {
     const [newTitle, setNewTitle] = useState(title)
 
     function handleClick (e) {
-        const {textContent: value} = e.target;
-        console.log(value === 'Title');
+        const {value} = e.target.dataset;
         setCreate(!create);
+        console.log(value);
         switch (value) {
-            case 'Title':
+            case 'titre':
                 console.log("c'est un titre");
-                setComponent([...component , <TitleComponent importance='1'>salut</TitleComponent>])
+                setComponent([...component , <TitleComponent importance='1' isEdit={true}></TitleComponent>])
                 break;
-            case 'Text':
+            case 'texte':
                 console.log("c'est un text");
-                setComponent([...component , <TextComponent>un text</TextComponent>])
+                setComponent([...component , <TextComponent isEdit={true}></TextComponent>])
                 break;
             default:
                 console.log('pas de bonne valeur');
@@ -46,31 +47,32 @@ export default function CreerCours ({title}) {
                         <h1> {newTitle} </h1>
                     )
                 }
-                <button className="edit"><i onClick={() => setEdit(!edit)}
-                            className="fa-solid fa-pen-to-square">
-                            </i></button>
+                <button className="edit">
+                <i  
+                    onClick={() => setEdit(!edit)} 
+                    className="fa-solid fa-pen-to-square">
+                </i>
+                </button>
            
             </div>
             <div className="cours__create">
-                <TitleComponent importance='1' order='1'>L’essentiel du cours</TitleComponent>
-                <TextComponent>
+                <TitleComponent importance='1' order='1' isEdit={false}>L’essentiel du cours</TitleComponent>
+                <TextComponent isEdit={false}>
                     Quae, son mode, son tempéristiques propres.
                 </TextComponent>
-                <TitleComponent importance='1' order='1'>titres</TitleComponent>
+                <TitleComponent importance='1' order='1' isEdit={false}>titres</TitleComponent>
 
                 {
-                    component.map((c, i) => (
-                        c
-                    ))
+                    component.map((c, i) => (c))
                 }
             </div>
-            <div className="addComponent">
+            <div className={`addComponent ${create === true && 'active'} `}>
                 {
                     create === true ? (
                         <div>
                             <nav>
-                                <button onClick={handleClick}>Text</button>
-                                <button onClick={handleClick}>Title</button>
+                                <button onClick={handleClick} data-value='texte'>T</button>
+                                <button onClick={handleClick} data-value='titre'><i className="fa-solid fa-heading"></i></button>
                             </nav>
                         </div>
                     ): (
