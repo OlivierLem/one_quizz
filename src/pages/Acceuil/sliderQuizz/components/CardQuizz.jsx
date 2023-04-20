@@ -5,19 +5,19 @@ export default function CardQuizz ({quizz, online}) {
 
     const {category, type, themes} = quizz;
 
-    console.log(quizz);
+    
     const categoryImage = (category) => {
         switch(category) {
             case 'etude':
-                return <i className="fa-solid fa-graduation-cap"></i>
+                return <i className={styles["fa-solid fa-graduation-cap"]}></i>
             case 'jeux vidéo':
-                return <i className="fa-solid fa-gamepad"></i>
+                return <i className={styles["fa-solid fa-gamepad"]}></i>
             case 'film et série':
-                return <i className="fa-solid fa-film"></i>
+                return <i className={styles["fa-solid fa-film"]}></i>
             case 'manga': 
-                return <i className="fa-solid fa-book"></i>
+                return <i className={styles["fa-solid fa-book"]}></i>
             case 'métier':
-               return <i className="fa-solid fa-briefcase"></i>
+               return <i className={styles["fa-solid fa-briefcase"]}></i>
             default:
                 return <div>erreur</div>      
             }
