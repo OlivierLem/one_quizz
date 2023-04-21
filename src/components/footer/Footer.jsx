@@ -11,7 +11,7 @@ export default function Footer () {
                     <li><NavLink to='/quizz'>Histoire</NavLink> </li>
                     <li><NavLink to='/quizz'>Harry potter</NavLink></li>
                     <li><NavLink to='/quizz'>One piece</NavLink></li>
-                    <li><NavLink to='/quizz'>Developpement web</NavLink></li>
+                    <li><NavLink to='/quizz'>Pokémon</NavLink></li>
                 </ul>
                 <ul>
                     <li className={`${styles.active}`}>Catégorie</li>

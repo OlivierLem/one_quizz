@@ -36,6 +36,7 @@ export const cour = [
         idComponsant,
         type: 'listes',
         content: {
+            
             liste: [
                 ' Le 1er groupe rassemble',
                 ' Le 1er groupe rassemble',
@@ -43,6 +44,6 @@ export const cour = [
                 ' Le 1er groupe rassemble',
             ]
         },
-        order: 4
+        order: 5
     },
 ]

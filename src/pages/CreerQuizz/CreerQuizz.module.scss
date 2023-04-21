@@ -1,0 +1,60 @@
+.stepCreate {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & > div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }    
+    & span {
+        display: inline-flex;
+        position: relative;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--light-blue);
+        color: white;
+        font-size: 1rem;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+    }
+    div.active span {
+        background-color: var(--dark-primary);
+    }
+    span[data-status] {
+        width: 2rem;
+        height: 2rem;
+    }
+    span[data-status]::before {
+        content: attr(data-status);
+        position: absolute;
+        top: -2rem;
+        left: -50%;
+        color: var(--dark-primary);
+    }
+
+    span[data-status]::after {
+        content: '';
+        position: absolute;
+        width: 5rem;
+        height: 3px;
+        top: 50%;
+        translate: 0 -50%;
+        background-color: inherit;
+    }
+
+    div:first-of-type span[data-status]{
+        margin-right: 5rem;
+    }
+    div:first-of-type span[data-status]::after {
+        left: 100%;
+    }
+    div:last-of-type span[data-status]{
+        margin-left: 5rem;
+    }
+    div:last-of-type span[data-status]::after {
+        right: 100%;
+    }
+}

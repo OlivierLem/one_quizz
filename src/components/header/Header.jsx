@@ -26,9 +26,9 @@ export default function Header ({log}) {
                 (
                     <div>
                         <div className={`${styles.createButton}`}>
-                            <button>Créer</button>
+                            <button>Créer <i className={"fa-solid fa-chevron-down"}></i></button>
                             <span className={`${styles.active}`}>
-                                <NavLink to='/creer'>Créer un quizz</NavLink>
+                                <NavLink to='/creer_quizz'>Créer un quizz</NavLink>
                                 <NavLink to='/creer_cours'>Créer un cours</NavLink>
                                 <NavLink to='/creer'>Créer une question</NavLink>
                                 <NavLink to='/demande_favoris'>Demande favoris</NavLink>
@@ -37,7 +37,7 @@ export default function Header ({log}) {
                         </div>
                         
                         <NavLink to='/profil'>john62</NavLink>
-                        <i className="fa-regular fa-user"></i>
+                        <i className={"fa-regular fa-user"}></i>
                     </div>
                 )
 
