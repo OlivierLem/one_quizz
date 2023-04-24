@@ -19,10 +19,22 @@ export default function SliderQuizz ({online, children}) {
         }
     }
 
+    function handleClick (e) {
+        setPage(parseInt(e.target.dataset.page))
+    }
+
     const paginationDisplay = (max) => {
         const pagination = []
         for (let i = 1; i <= max; i++) {
-            pagination.push( <span key={i} className={`${page === i ? 'active' : '' }`}></span> )
+            pagination.push( 
+                <span 
+                    key={i} 
+                    className={`${page === i ? 'active' : '' }`}
+                    data-page={i}
+                    onClick={handleClick} >
+
+                </span> 
+                )
         }
         return pagination
     }
@@ -31,11 +43,11 @@ export default function SliderQuizz ({online, children}) {
         <div className={`${styles.slider}`}>
             <div className={`${styles.title}`}>
                 <h3>{children}</h3>
-                <NavLink to='/quizz'><i className="fa-solid fa-arrow-right"></i></NavLink>
+                <NavLink to='/quizz'><i className={"fa-solid fa-arrow-right"}></i></NavLink>
                 
             </div>
             <div className={`${styles.slider_content}`}>
-                <i className="fa-solid fa-chevron-left"  onClick={previousPage} ></i>
+                <i className={"fa-solid fa-chevron-left"}  onClick={previousPage} ></i>
                 <div>
                     {
                         quizz.map((q, i) => { 
@@ -54,7 +66,7 @@ export default function SliderQuizz ({online, children}) {
                     }
                 </div>
                 
-                <i className="fa-solid fa-chevron-right" onClick={nextPage} ></i>
+                <i className={"fa-solid fa-chevron-right"} onClick={nextPage} ></i>
             </div>
             <div className={`${styles.pagination}`} >
                 {

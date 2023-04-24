@@ -14,6 +14,12 @@ export default function Connexion () {
         email: '',
         remember: false
     }
+
+    const defaultValuesInscription = {
+        pseudo: '',
+        password: '',
+        email: '',
+    }
      
     const shemaConnexion = yup.object({
         pseudo: yup
@@ -29,18 +35,23 @@ export default function Connexion () {
     const shemaInscription = yup.object({
         pseudo: yup
             .string()
-            .required('Ce champ est vide')
-            .matches(/^toto$/, 'Pas le bon pseudo'),
+            .required('Ce champ est vide'),
         email: yup.string().required('Ce champ est vide'),
         password: yup
             .string()
             .required('Ce champ est vide')
-            .matches(/[0-9]/, "Le mots de passe n'as pas de chiffre"),
+            .min(4, 'Le mdp doit avoir plus de 4 charactéres')
+            .matches(/[0-9]/, "Le mdp n'as pas de chiffre")
+            .matches(/[a-z]/, "Le mdp n'as pas de lettre en minuscule")
+            .matches(/[A-Z]/, "Le mdp n'as pas de lettre en majuscule"),
+        confirm_password: yup
+            .string()
+            .oneOf([yup.ref('password')], "le mots de passe n'est pas le même"),
     })
 
     const { 
         register, 
-        handleSubmit, 
+        handleSubmit,
         formState: { errors } 
     } = useForm({
         defaultValues,
@@ -50,9 +61,9 @@ export default function Connexion () {
     const { 
         register: registerInscription, 
         handleSubmit: handleSubmitInscription, 
-        formState: { errorsInscription } 
+        formState: { errors: errorsInscription } 
     } = useForm({
-        defaultValues,
+        defaultValuesInscription,
         resolver: yupResolver(shemaInscription)
     })
 
@@ -69,11 +80,9 @@ export default function Connexion () {
         console.log(values);
     }
 
-    // ! Message d'erreur non affiché pour le formulaire d'inscription
-
     return (
         <div className={`${styles.connexion}  ${reveal && styles.active}`}>
-            <form action="" onSubmit={handleSubmit(submit)}>
+            <form action="" className={styles.connexionForm} onSubmit={handleSubmit(submit)}>
                 <h3>Connexion au compte</h3>
                 <div>
                    <input {...register('pseudo')} type="text" name="pseudo" required  />
@@ -88,11 +97,17 @@ export default function Connexion () {
 
                 <span>
                     <input {...register('remember')} type="checkbox" name="remember" />
-                    <label htmlFor="remember"><i className="fa-solid fa-check"></i> Se souvenir de moi</label>
-                    
+                    <label htmlFor="remember"><i className={"fa-solid fa-check"}></i> Se souvenir de moi</label>
                 </span>
+                <div>
+                    <ul>
+                        <li><a href='#'>Pas encore inscrit</a></li>
+                        <li><a href='#'>Mots de passe oublié</a></li>
+                    </ul>
+                </div>
                 <button >Se connecter</button> 
             </form>
+
             <div onClick={handleClick} >
                 <div>
                     <span></span>

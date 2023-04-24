@@ -18,7 +18,6 @@ export default function SliderThemes () {
             setPage(page - 1)
         }
     }
-    console.log(page);
 
     function handleClick (e) {
         setPage(parseInt(e.target.dataset.page))
