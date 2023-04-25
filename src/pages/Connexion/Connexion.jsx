@@ -6,7 +6,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 
 export default function Connexion () {
 
-    const [reveal, setReveal] = useState(true)
+    const [reveal, setReveal] = useState(false)
 
     const defaultValues = {
         pseudo: '',
@@ -80,17 +80,27 @@ export default function Connexion () {
         console.log(values);
     }
 
+    function handleInput (e) {
+        // ? Manque la gestion des espaces dans les input
+        const label = document.querySelector(`label[for='${e.target.name}']`)
+        if(e.target.value !== '') {
+            label.classList.add(`${styles.active}`);
+        } else {
+            label.classList.remove(`${styles.active}`);
+        }
+    }
+
     return (
         <div className={`${styles.connexion}  ${reveal && styles.active}`}>
             <form action="" className={styles.connexionForm} onSubmit={handleSubmit(submit)}>
                 <h3>Connexion au compte</h3>
                 <div>
-                   <input {...register('pseudo')} type="text" name="pseudo" required  />
+                   <input {...register('pseudo')} onInput={handleInput} type="text" name="pseudo" />
                    <label htmlFor="pseudo">Pseudo</label>
                 </div>
                    {errors?.pseudo && <p>{errors.pseudo.message}</p> }
                 <div>
-                    <input {...register('password')} type="password" name="password" required />
+                    <input {...register('password')} onInput={handleInput} type="password" name="password"  />
                     <label htmlFor="password">Mots de passe</label>
                 </div>
                     {errors?.password && <p>{errors.password.message}</p> }
@@ -118,22 +128,22 @@ export default function Connexion () {
                     <i className={`fa-solid fa-xmark ${styles.cross}`}
                        onClick={handleRemove}></i>
                     <div>
-                        <input {...registerInscription('email')} type="text" name="email"  />
+                        <input {...registerInscription('email')} onInput={handleInput} type="text" name="email"  />
                         <label htmlFor="email">Email</label>
                     </div>
                         {errorsInscription?.email && <p>{errorsInscription.email.message}</p> }
                     <div>
-                        <input {...registerInscription('pseudo')} type="text" name="pseudo"  />
-                        <label htmlFor="pseudo">Pseudo</label>
+                        <input {...registerInscription('pseudo')} onInput={handleInput} type="text" name="pseudo-inscription"  />
+                        <label htmlFor="pseudo-inscription">Pseudo</label>
                     </div>
                         {errorsInscription?.pseudo &&  <p>{errorsInscription.pseudo.message}</p>}
                     <div>
-                        <input {...registerInscription('password')} type="password" name="password"  />
-                        <label htmlFor="password">Mots de passe</label>
+                        <input {...registerInscription('password')} onInput={handleInput} type="password" name="password-inscription"  />
+                        <label htmlFor="password-inscription">Mots de passe</label>
                     </div>
                         {errorsInscription?.password &&  <p>{errorsInscription.password.message}</p>} 
                     <div>
-                        <input {...registerInscription('confirm_password')} type="password" name="confirm_password"  />
+                        <input {...registerInscription('confirm_password')} onInput={handleInput} type="password" name="confirm_password"  />
                         <label htmlFor="confirm_password">confirmation mots de passe</label>
                     </div>
                         {errorsInscription?.confirm_password &&  <p>{errorsInscription.confirm_password.message}</p>}

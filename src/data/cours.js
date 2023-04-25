@@ -1,6 +1,6 @@
 export const cour = [
     {
-        idComponsant,
+        idComposant,
         type: 'title',
         content: {
             title: "L’essentiel du cours",
@@ -9,13 +9,13 @@ export const cour = [
         order: 1
     },
     {
-        idComponsant,
+        idComposant,
         type: 'text',
         content: "L’essentiel du cours",
         order: 3
     },
     {
-        idComponsant,
+        idComposant,
         type: 'media',
         content: {
             url: "assets/images/themes/rocket_league.jpg",
@@ -24,7 +24,7 @@ export const cour = [
         order: 2
     },
     {
-        idComponsant,
+        idComposant,
         type: 'notes',
         content: {
             type: 'infos',
@@ -33,10 +33,9 @@ export const cour = [
         order: 4
     },
     {
-        idComponsant,
+        idComposant,
         type: 'listes',
         content: {
-            
             liste: [
                 ' Le 1er groupe rassemble',
                 ' Le 1er groupe rassemble',
@@ -46,4 +45,95 @@ export const cour = [
         },
         order: 5
     },
+]
+
+const categories = {
+    category: {
+        name: 'etudes',
+        theme:[
+            {
+                idTheme: 1,
+                name: 'histoire',
+                image: 'histoire.jpeg'
+            },
+            {
+                idTheme: 2,
+                name: 'geographie',
+                image: 'geographie.jpeg'
+            }
+        ]
+    }
+}
+
+const users = [
+    {
+        pseudo: 'john62',
+        email: 'john@free.fr',
+        password: '1234',
+        image: null,
+        statut: 'connecté',
+        role: 'normal', //rôle de base pour tout les utilisateur 
+        questions: [
+            {
+                intitule: 'qui est-ce',
+                type:'qcm',
+                status: 'public',
+                reponses:[ 
+                    {
+                        value: 'toi',
+                        isCorrect: false,
+                    },
+                    {
+                        value: 'lui',
+                        isCorrect: true,
+                    },
+                ],
+                theme: 'relation avec idThéme',
+                user: 'relation avec idUser',
+            },
+            {
+                intitule: 'qui est-ce',
+                type:'qcm',
+                reponses:[ 
+                    {
+                        value: 'toi',
+                        isCorrect: false,
+                    },
+                    {
+                        value: 'lui',
+                        isCorrect: true,
+                    },
+                ],
+                theme: 'relation avec idThéme',
+                user: 'relation avec idUser',
+            },
+        ],
+    }, 
+    {
+        pseudo: 'test',
+        email: 'test@free.fr',
+        password: '1234',
+        image: null,
+        statut: 'non connecté',
+        role: 'restricted', // rôle qui interdit la création 
+        questions: [
+            {
+                intitule: 'qui est-ce',
+                type:'qcm',
+                status: 'restricted',
+                reponses:[ 
+                    {
+                        value: 'toi',
+                        isCorrect: false,
+                    },
+                    {
+                        value: 'lui',
+                        isCorrect: true,
+                    },
+                ],
+                theme: 'relation avec idThéme',
+                user: 'relation avec idUser',
+            }
+        ]
+    }
 ]

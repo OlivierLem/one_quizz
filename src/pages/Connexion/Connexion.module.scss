@@ -69,7 +69,7 @@
             }
             
             input:focus ~ label,
-            input:valid ~ label {
+            label.active {
                 transform: translateY(-100%);
             }
 
@@ -249,7 +249,7 @@
 
 }
 
-.active {
+div.active {
     height: 40rem;
     & > div {
         transform: translateX(-88%);
