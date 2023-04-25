@@ -41,7 +41,7 @@ export default function SliderQuizz ({online, children}) {
 
     return (
         <div className={`${styles.slider}`}>
-            <div className={`${styles.title}`}>
+            <div className={`title`}>
                 <h3>{children}</h3>
                 <NavLink to='/quizz'><i className={"fa-solid fa-arrow-right"}></i></NavLink>
                 

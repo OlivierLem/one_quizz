@@ -11,31 +11,6 @@
     gap: 2rem;
 }
 
-.title {
-    display: flex;
-    flex-direction: row; 
-    align-items: center;
-    text-transform: capitalize;
-    font-size: 1.4rem;
-    gap: 1rem;
-    margin-left: 3rem;
-    color: var(--dark-primary);
-    background-color:  var(--background-body);
-    width: fit-content;
-    transform: translateY(-60%);
-    padding-inline: 3rem;
-        i {
-            padding: .5rem;
-            border: none;
-            font-size: 1.1rem;
-            color: #fff;
-            border-radius: 50%;
-            background-color: var(--dark-primary);
-        }
-    
-
-}
-
 .slider_content {
     display: flex;
     align-items: center;

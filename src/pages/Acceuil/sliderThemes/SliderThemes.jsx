@@ -40,7 +40,7 @@ export default function SliderThemes () {
 
     return (
         <div className={`${styles.slider}`}>
-            <div className={`${styles.title}`}>
+            <div className={`title`}>
                 <h3>Thémes favoris</h3>
                 <NavLink to='/themes'><i className={"fa-solid fa-arrow-right"}></i></NavLink>
             </div>

@@ -3,6 +3,7 @@ import styles from './Connexion.module.scss'
 import { useForm } from 'react-hook-form'
 import * as yup from 'yup'
 import { yupResolver } from "@hookform/resolvers/yup";
+import { Inscription } from './Inscription';
 
 export default function Connexion () {
 
@@ -13,12 +14,6 @@ export default function Connexion () {
         password: '',
         email: '',
         remember: false
-    }
-
-    const defaultValuesInscription = {
-        pseudo: '',
-        password: '',
-        email: '',
     }
      
     const shemaConnexion = yup.object({
@@ -32,23 +27,6 @@ export default function Connexion () {
             .matches(/^toto25$/, 'Pas le bon mots de passe'),
     })
 
-    const shemaInscription = yup.object({
-        pseudo: yup
-            .string()
-            .required('Ce champ est vide'),
-        email: yup.string().required('Ce champ est vide'),
-        password: yup
-            .string()
-            .required('Ce champ est vide')
-            .min(4, 'Le mdp doit avoir plus de 4 charactéres')
-            .matches(/[0-9]/, "Le mdp n'as pas de chiffre")
-            .matches(/[a-z]/, "Le mdp n'as pas de lettre en minuscule")
-            .matches(/[A-Z]/, "Le mdp n'as pas de lettre en majuscule"),
-        confirm_password: yup
-            .string()
-            .oneOf([yup.ref('password')], "le mots de passe n'est pas le même"),
-    })
-
     const { 
         register, 
         handleSubmit,
@@ -56,15 +34,6 @@ export default function Connexion () {
     } = useForm({
         defaultValues,
         resolver: yupResolver(shemaConnexion)
-    })
-
-    const { 
-        register: registerInscription, 
-        handleSubmit: handleSubmitInscription, 
-        formState: { errors: errorsInscription } 
-    } = useForm({
-        defaultValuesInscription,
-        resolver: yupResolver(shemaInscription)
     })
 
     function handleClick () {
@@ -77,6 +46,7 @@ export default function Connexion () {
     }
 
     function submit (values) {
+        console.log('click');
         console.log(values);
     }
 
@@ -111,8 +81,8 @@ export default function Connexion () {
                 </span>
                 <div>
                     <ul>
-                        <li><a href='#'>Pas encore inscrit</a></li>
-                        <li><a href='#'>Mots de passe oublié</a></li>
+                        <li><button type='button' onClick={handleClick}>Pas encore inscrit</button></li>
+                        <li><a href='#'>Mots de passe oublié ?</a></li>
                     </ul>
                 </div>
                 <button >Se connecter</button> 
@@ -123,32 +93,7 @@ export default function Connexion () {
                     <span></span>
                     <span></span>
                 </div>
-                <form action="" onSubmit={handleSubmitInscription(submit)}>
-                    <h3>Inscription</h3>
-                    <i className={`fa-solid fa-xmark ${styles.cross}`}
-                       onClick={handleRemove}></i>
-                    <div>
-                        <input {...registerInscription('email')} onInput={handleInput} type="text" name="email"  />
-                        <label htmlFor="email">Email</label>
-                    </div>
-                        {errorsInscription?.email && <p>{errorsInscription.email.message}</p> }
-                    <div>
-                        <input {...registerInscription('pseudo')} onInput={handleInput} type="text" name="pseudo-inscription"  />
-                        <label htmlFor="pseudo-inscription">Pseudo</label>
-                    </div>
-                        {errorsInscription?.pseudo &&  <p>{errorsInscription.pseudo.message}</p>}
-                    <div>
-                        <input {...registerInscription('password')} onInput={handleInput} type="password" name="password-inscription"  />
-                        <label htmlFor="password-inscription">Mots de passe</label>
-                    </div>
-                        {errorsInscription?.password &&  <p>{errorsInscription.password.message}</p>} 
-                    <div>
-                        <input {...registerInscription('confirm_password')} onInput={handleInput} type="password" name="confirm_password"  />
-                        <label htmlFor="confirm_password">confirmation mots de passe</label>
-                    </div>
-                        {errorsInscription?.confirm_password &&  <p>{errorsInscription.confirm_password.message}</p>}
-                    <button>S'inscrire</button> 
-                </form>
+                <Inscription handleRemove={handleRemove} />
             </div>
         </div>
     )

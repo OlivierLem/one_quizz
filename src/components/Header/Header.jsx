@@ -2,9 +2,14 @@ import { useState } from 'react'
 import styles from './Header.module.scss'
 import { NavLink } from 'react-router-dom'
 
-export default function Header ({log}) {
+export default function Header ({log, logout}) {
 
-    //const [log, setLog] = useState(false)
+
+    const handleClick = () => {
+        logout();
+    }
+
+    //! bug hover lien 
 
     return (
         <header className={`${styles.header}`} >
@@ -36,6 +41,7 @@ export default function Header ({log}) {
                             </span>
                         </div>
                         
+                        <NavLink to='/' onClick={handleClick}>Logout <i className={"fa-solid fa-right-from-bracket"}></i></NavLink>
                         <NavLink to='/profil'>john62</NavLink>
                         <i className={"fa-regular fa-user"}></i>
                     </div>

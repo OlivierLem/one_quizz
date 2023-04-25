@@ -30,7 +30,7 @@ export function CreerQuizz () {
                             </select>
                         </div>
                         <div>
-                            <label >Nombre de qustion</label>
+                            <label >Nombre de questions</label>
                             <select>
                                 <option value="1">1</option>
                                 <option value="2">2</option>

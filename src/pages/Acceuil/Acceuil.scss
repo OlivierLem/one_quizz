@@ -29,3 +29,36 @@
         }
     }
 }
+.title {
+    display: flex;
+    flex-direction: row; 
+    align-items: center;
+    text-transform: capitalize;
+    font-size: 1.4rem;
+    gap: 1rem;
+    margin-left: 3rem;
+    width: fit-content;
+    background-color:  var(--background-body);
+    transform: translateY(-60%);
+    padding-inline: 3rem;
+        i {
+            padding: .5rem;
+            border: none;
+            font-size: 1.1rem;
+            color: #fff;
+            border-radius: 50%;
+        }
+}
+div:nth-of-type(odd) > .title {
+    color: var(--light-blue);
+    i {
+        background-color: var(--light-blue);
+    }
+}
+
+div:nth-of-type(even) > .title {
+    color: var(--dark-primary);
+    i {
+        background-color: var(--dark-primary);
+    }
+}

@@ -31,18 +31,23 @@
     gap: 1rem;
     
     button {
+        font-weight: bold;
         padding: .8rem 1rem;
+        padding-right: 1.5rem;
         border: none;
         border-radius: 5px;
         background-color: #fff;
         color:  var(--primary);
     }
 
-    i {
+    & > i {
         padding: .5rem;
         border-radius: 50%;
         background-color: #fff;
         color:  var(--primary);
+    }
+    a > i {
+        margin-left: .5rem;
     }
 }
 
@@ -69,23 +74,32 @@
     span {
         display: none;
         flex-direction: column;
-        gap: 4px;
         padding-block: 8px;
         position: absolute;
         border-radius: .5rem;
         top: 100%;
-        left: -60%;
-        background-color: var(--light-blue);
+        left: -50%;
+        background-color: var(--valid);
         width: 10rem;
         a { 
             text-align: center;
             width: 100%;
             height: 100%;
+            padding-block: 2px;
             color: var(--dark-gray);
+            background-color: var(--light-blue);
             text-decoration: none !important; 
+            transform: scale(1);
+            transition: transform ease-in-out .25s;
+
             &:hover {
+                transform: scale(1.2);
                 background-color: var(--dark-gray);
                 color: var(--light-blue);
+                z-index: 100;
+            }
+            &::before {
+                display: none;
             }
         }
     }
