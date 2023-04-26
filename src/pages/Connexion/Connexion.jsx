@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form'
 import * as yup from 'yup'
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Inscription } from './Inscription';
+import { signin } from '../../apis/auth.js';
 
 export default function Connexion () {
 
@@ -12,25 +13,24 @@ export default function Connexion () {
     const defaultValues = {
         pseudo: '',
         password: '',
-        email: '',
         remember: false
     }
      
     const shemaConnexion = yup.object({
         pseudo: yup
             .string()
-            .required('Ce champ est vide')
-            .matches(/^toto$/, 'Pas le bon pseudo'),
+            .required('Ce champ est vide'),
         password: yup
             .string()
-            .required('Ce champ est vide')
-            .matches(/^toto25$/, 'Pas le bon mots de passe'),
+            .required('Ce champ est vide'),
     })
 
     const { 
         register, 
         handleSubmit,
-        formState: { errors } 
+        formState: { errors, isSubmitting } ,
+        setError, 
+        clearErrors
     } = useForm({
         defaultValues,
         resolver: yupResolver(shemaConnexion)
@@ -45,10 +45,16 @@ export default function Connexion () {
         setReveal(false)
     }
 
-    function submit (values) {
-        console.log('click');
+    const submit = handleSubmit(async (values) => {
         console.log(values);
-    }
+        try {
+            clearErrors();
+            const user = await signin(values);
+            //console.log(user);
+        } catch (message) {
+            setError('generic', {type: 'generic', message})
+        }
+    })
 
     function handleInput (e) {
         // ? Manque la gestion des espaces dans les input
@@ -62,7 +68,7 @@ export default function Connexion () {
 
     return (
         <div className={`${styles.connexion}  ${reveal && styles.active}`}>
-            <form action="" className={styles.connexionForm} onSubmit={handleSubmit(submit)}>
+            <form action="" className={styles.connexionForm} onSubmit={submit}>
                 <h3>Connexion au compte</h3>
                 <div>
                    <input {...register('pseudo')} onInput={handleInput} type="text" name="pseudo" />
@@ -85,7 +91,9 @@ export default function Connexion () {
                         <li><a href='#'>Mots de passe oublié ?</a></li>
                     </ul>
                 </div>
-                <button >Se connecter</button> 
+                {errors.generic && ( <p>{errors.generic.message}</p> )}
+                
+                <button disabled={isSubmitting} >Se connecter</button> 
             </form>
 
             <div onClick={handleClick} >

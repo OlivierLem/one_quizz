@@ -6,6 +6,7 @@ import Qcm from "../pages/Qcm/Qcm";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import CreerCours from "../pages/CreerCours/CreerCours";
 import { CreerQuizz } from "../pages/CreerQuizz/CreerQuizz";
+import { userLoader } from "../loaders/userLoader.js";
 
 const qcmData = {
     question: "Quelle est la langue utilisé ?",
@@ -34,9 +35,10 @@ export const router = createBrowserRouter([
         path: '/',
         element: <App />,
         errorElement: <ErrorPage />,
+        loader: userLoader,
         children: [
             {
-                path: '/',
+                index: true,
                 element: <Acceuil />
             },
             {

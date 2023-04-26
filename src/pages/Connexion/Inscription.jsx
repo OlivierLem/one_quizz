@@ -2,6 +2,7 @@ import styles from './Connexion.module.scss'
 import { useForm } from 'react-hook-form'
 import * as yup from 'yup'
 import { yupResolver } from "@hookform/resolvers/yup";
+import { createUser } from '../../apis/user.js';
 
 export function Inscription ({handleRemove}) {
 
@@ -19,10 +20,10 @@ export function Inscription ({handleRemove}) {
         password: yup
             .string()
             .required('Ce champ est vide')
-            .min(4, 'Le mdp doit avoir plus de 4 charactéres')
+            /* .min(4, 'Le mdp doit avoir plus de 4 charactéres')
             .matches(/[0-9]/, "Le mdp n'as pas de chiffre")
             .matches(/[a-z]/, "Le mdp n'as pas de lettre en minuscule")
-            .matches(/[A-Z]/, "Le mdp n'as pas de lettre en majuscule"),
+            .matches(/[A-Z]/, "Le mdp n'as pas de lettre en majuscule") */,
         confirm_password: yup
             .string()
             .required('Ce champ est vide')
@@ -30,18 +31,26 @@ export function Inscription ({handleRemove}) {
     })
 
     const { 
-        register: register, 
-        handleSubmit: handleSubmitI, 
-        formState: { errors: errors } 
+        register, 
+        handleSubmit: handleSubmitInscription, 
+        formState: { errors },
+        setError,
+        clearErrors
     } = useForm({
         defaultValues,
         resolver: yupResolver(shema)
     })
 
-    function submit (values) {
-        console.log('click');
+    const submitInscription = handleSubmitInscription (async (values) => {
         console.log(values);
-    }
+        try {
+            clearErrors();
+            await createUser(values);
+            handleRemove()
+        } catch (message) {
+            setError('generic', {type: "generic", message})
+        }
+    })
 
     function handleInput (e) {
         // ? Manque la gestion des espaces dans les input
@@ -56,7 +65,7 @@ export function Inscription ({handleRemove}) {
     //! bug pseudo et password handleInput
 
     return (
-        <form action="" onSubmit={handleSubmitI(submit)}>
+        <form action="" onSubmit={submitInscription}>
             <h3>Inscription</h3>
             <i  className={`fa-solid fa-xmark ${styles.cross}`}
                 onClick={handleRemove}>
@@ -81,7 +90,9 @@ export function Inscription ({handleRemove}) {
                 <label htmlFor="confirm_password">confirmation mots de passe</label>
             </div>
                 {errors?.confirm_password &&  <p>{errors.confirm_password.message}</p>}
-            <button>S'inscrire</button> 
+               {/*  {errors.generic && <p>{errors.generic.message}</p>}
+             */}
+            <button >S'inscrire</button> 
         </form>
     )
 }
