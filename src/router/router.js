@@ -6,7 +6,9 @@ import Qcm from "../pages/Qcm/Qcm";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import CreerCours from "../pages/CreerCours/CreerCours";
 import { CreerQuizz } from "../pages/CreerQuizz/CreerQuizz";
-import { userLoader } from "../loaders/userLoader.js";
+import { userLoader } from '../loaders/userLoader'
+import ProfilPage from "../pages/ProfilPage/ProfilPage";
+import ProtectedRoute from "../components/ProtectedRoute/ProtectedRoute";
 
 const qcmData = {
     question: "Quelle est la langue utilisé ?",
@@ -34,6 +36,7 @@ export const router = createBrowserRouter([
     {
         path: '/',
         element: <App />,
+        loader: userLoader,
         errorElement: <ErrorPage />,
         loader: userLoader,
         children: [
@@ -56,7 +59,15 @@ export const router = createBrowserRouter([
             {
               path: '/creer_cours',
               element: <CreerCours title='cours de conjugaison' />
-            }
+            },
+            {
+              path: '/profile',
+              element: (
+              <ProtectedRoute>
+                <ProfilPage />
+              </ProtectedRoute>
+              ),
+            },
             /* {
                 path: '/groupes',
                 element: <GroupesPage />
@@ -64,10 +75,6 @@ export const router = createBrowserRouter([
             {
               path: '/themes',
               element: <ThemesPage />
-            },
-            {
-              path: '/profil',
-              element: <ProfilPage />
             },
             {
               path: '/mentions',

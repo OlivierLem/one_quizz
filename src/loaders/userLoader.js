@@ -1,4 +1,4 @@
-import { getCurrentUser } from "../apis/auth.js";
+import { getCurrentUser } from "../apis/auth";
 
 export async function userLoader() {
     return getCurrentUser();

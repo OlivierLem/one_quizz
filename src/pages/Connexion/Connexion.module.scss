@@ -153,20 +153,9 @@
     .connexionForm div:last-of-type{
         align-self: start;
         margin-left: 1rem;
-        margin-top: -1rem;
-        ul {
-            display: flex;
-            flex-direction: column;
-            gap: .2rem;
-        }
-        a {
-            position: relative;
-            font-size: 1.3rem;
-            font-weight: 300;
-            color: white;
-        }
+        margin-top: -1rem;        
     }
-
+    
     &:not(.active) div:hover {
         transform: translateX(0);
         
@@ -245,8 +234,33 @@
         }
         
     }
-    
+}
 
+form .formInfo  {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    color: white;
+    gap: .2rem;
+    button.notRegister {
+        text-decoration: none;
+        border: none;
+        padding: 0;
+        margin: 0;
+        font-family: var(--font-family);
+        font-weight: 300;
+        font-size: 1.3rem;
+        &:hover {
+            text-decoration: underline;
+            background-color: transparent;
+        }
+    }
+    a {
+        position: relative;
+        font-size: 1.3rem;
+        font-weight: 300;
+        color: white;
+    }
 }
 
 div.active {

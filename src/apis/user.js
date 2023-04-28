@@ -4,13 +4,13 @@ export async function createUser(newUser) {
     console.log(newUser);
     const response = await fetch(API_USERS, {
         method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify([...newUser])
+		headers: {
+			"Content-Type": "application/json",
+		},
+		body: JSON.stringify(newUser),
     })
-    
     const backResponse = await response.json()
+    console.log(backResponse);
     if (response.ok) {
         return backResponse;
     } else {

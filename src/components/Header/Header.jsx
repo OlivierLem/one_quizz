@@ -1,12 +1,14 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import styles from './Header.module.scss'
 import { NavLink } from 'react-router-dom'
+import { AuthContext } from '../../context/AuthContext'
 
-export default function Header ({log, logout}) {
+export default function Header () {
 
-
+    const { user, signout } = useContext(AuthContext);
+    /* console.log(user); */
     const handleClick = () => {
-        logout();
+        signout();
     }
 
     //! bug hover lien 
@@ -20,17 +22,9 @@ export default function Header ({log, logout}) {
                 <NavLink to='/groupes'>Groupes</NavLink>
                 <NavLink to='/themes'>Thémes</NavLink>
             </nav>
-            {
-                log !== true ?
-                (
-                    <div>
-                        <NavLink to='/connexion' >Connexion</NavLink>
-                        <button>Incription</button>
-                    </div>
-                ) : 
-                (
-                    <div>
-                        <div className={`${styles.createButton}`}>
+            {user ? (
+                <div>
+                    <div className={`${styles.createButton}`}>
                             <button>Créer <i className={"fa-solid fa-chevron-down"}></i></button>
                             <span className={`${styles.active}`}>
                                 <NavLink to='/creer_quizz'>Créer un quizz</NavLink>
@@ -41,9 +35,14 @@ export default function Header ({log, logout}) {
                             </span>
                         </div>
                         
-                        <NavLink to='/' onClick={handleClick}>Logout <i className={"fa-solid fa-right-from-bracket"}></i></NavLink>
-                        <NavLink to='/profil'>john62</NavLink>
+                        <NavLink to='/' onClick={handleClick}>Déconnexion <i className={"fa-solid fa-right-from-bracket"}></i></NavLink>
+                        <NavLink to='/profile'> {user.pseudo} </NavLink>
                         <i className={"fa-regular fa-user"}></i>
+                    </div>
+                ) : (
+                    <div>
+                        <NavLink to='/connexion' >Connexion</NavLink>
+                        <button>Incription</button>
                     </div>
                 )
 
