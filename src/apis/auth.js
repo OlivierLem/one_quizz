@@ -9,7 +9,7 @@ export async function signin(credentials) {
     body: JSON.stringify(credentials)
   });
 
-  console.log(response);
+  //console.log(response);
   const backResponse = await response.json()
   if (response.ok) {
     return backResponse
@@ -24,7 +24,6 @@ export async function signin(credentials) {
 
 export async function getCurrentUser() {
     const response = await fetch(`${API_USERS}/current`);
-    console.log(response);
     return response.json();
 }
 

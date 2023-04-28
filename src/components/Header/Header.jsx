@@ -41,8 +41,8 @@ export default function Header () {
                     </div>
                 ) : (
                     <div>
-                        <NavLink to='/connexion' >Connexion</NavLink>
-                        <button>Incription</button>
+                        <NavLink to='/connexion/' >Connexion</NavLink>
+                        <NavLink to='/connexion/?notRegister=true' ><button>Incription</button></NavLink>
                     </div>
                 )
 

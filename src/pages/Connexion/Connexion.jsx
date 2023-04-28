@@ -1,12 +1,11 @@
-import { useContext, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import styles from './Connexion.module.scss'
 import { useForm } from 'react-hook-form'
 import * as yup from 'yup'
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Inscription } from './Inscription';
-import { signin } from '../../apis/auth.js';
 import { AuthContext } from '../../context/AuthContext';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useSearchParams } from 'react-router-dom';
 
 export default function Connexion () {
 
@@ -39,17 +38,29 @@ export default function Connexion () {
         resolver: yupResolver(shemaConnexion)
     })
 
+    const [queryParams, setQueryParams] = useSearchParams();
     function handleClick () {
         document.querySelector('.form').reset();
         const labels = document.querySelectorAll('.form label');
         for (const label of labels) {
             label.classList.remove(`${styles.active}`)
         }
-        setReveal(true)
+        queryParams.set('notRegister', true)
+        setQueryParams(`notRegister=true`);
     }
+    useEffect(() => {
+        if (queryParams.get('notRegister') === 'true'){
+            setReveal(queryParams.get('notRegister'))
+        } else {
+            setReveal(false)
+            setQueryParams(`notRegister=false`)
+        }
+    }, [queryParams])
 
+    //* modifie le queryParams 'notRegister' = false et modifie l'url
     function handleRemove () {
-        setReveal(!reveal)
+        queryParams.set('notRegister', false)
+        setQueryParams(`notRegister=false`)
     }
 
     const submit = handleSubmit(async (values) => {
@@ -103,9 +114,8 @@ export default function Connexion () {
                         
                         <button disabled={isSubmitting} >Se connecter</button> 
                     </form>
-
-                    <div onClick={handleClick} >
-                        <div>
+                    <div  >
+                        <div onClick={handleClick} className={styles.buttonReveal}>
                             <span></span>
                             <span></span>
                         </div>

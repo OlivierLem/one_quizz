@@ -47,7 +47,7 @@ export const router = createBrowserRouter([
             {
                 path: '/connexion',
                 element: <Connexion />
-            }, 
+            },
             {
                 path: '/quizz',
                 element: <Qcm qcm={qcmData} timer='5' />

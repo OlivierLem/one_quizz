@@ -179,14 +179,17 @@
             color: black;
             margin-left: 4rem;
         }
-        & > div {
+        & > .buttonReveal {
             display: flex;
             gap: .5rem;
             position: absolute;
-            top: 3rem;
-            left: .7rem;
-            width: 2rem;
+            top: 0;
+            left: 0rem;
+            width: 3.5rem;
             height: 100%;
+            padding-top: 2rem;
+            padding-left: .7rem;
+            z-index: 100;
         }
         & span {
             display: block;
@@ -215,8 +218,10 @@
                 margin-left: -2rem;
             }
             .cross {
-                transition: transform ease-in .25s;
+                transition: transform ease-in .25s,
+                            color ease-in .25s;
                 &:hover {
+                    color: var(--dark-blue);
                     transform: scale(1.15);
                 }
             }
@@ -272,6 +277,10 @@ div.active {
         }
         & > div {
             display: none;
+        }
+        span {
+            display: none;
+            opacity: 0;
         }
     }
 }

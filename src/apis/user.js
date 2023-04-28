@@ -10,7 +10,7 @@ export async function createUser(newUser) {
 		body: JSON.stringify(newUser),
     })
     const backResponse = await response.json()
-    console.log(backResponse);
+    //console.log(backResponse);
     if (response.ok) {
         return backResponse;
     } else {
