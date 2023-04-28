@@ -24,6 +24,7 @@ export async function signin(credentials) {
 
 export async function getCurrentUser() {
     const response = await fetch(`${API_USERS}/current`);
+    console.log(response);
     return response.json();
 }
 

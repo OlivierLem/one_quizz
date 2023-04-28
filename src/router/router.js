@@ -9,6 +9,7 @@ import { CreerQuizz } from "../pages/CreerQuizz/CreerQuizz";
 import { userLoader } from '../loaders/userLoader'
 import ProfilPage from "../pages/ProfilPage/ProfilPage";
 import ProtectedRoute from "../components/ProtectedRoute/ProtectedRoute";
+import ThemesPage from "../pages/ThemesPage/ThemesPage";
 
 const qcmData = {
     question: "Quelle est la langue utilisé ?",
@@ -53,6 +54,10 @@ export const router = createBrowserRouter([
                 element: <Qcm qcm={qcmData} timer='5' />
             },
             {
+              path: '/themes',
+              element: <ThemesPage />
+            },
+            {
               path: '/creer_quizz',
               element: <CreerQuizz />
             },
@@ -71,10 +76,6 @@ export const router = createBrowserRouter([
             /* {
                 path: '/groupes',
                 element: <GroupesPage />
-            },
-            {
-              path: '/themes',
-              element: <ThemesPage />
             },
             {
               path: '/mentions',

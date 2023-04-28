@@ -48,6 +48,7 @@ export default function Connexion () {
         queryParams.set('notRegister', true)
         setQueryParams(`notRegister=true`);
     }
+    
     useEffect(() => {
         if (queryParams.get('notRegister') === 'true'){
             setReveal(queryParams.get('notRegister'))
