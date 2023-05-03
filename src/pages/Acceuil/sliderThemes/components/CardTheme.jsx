@@ -33,31 +33,34 @@ export default function CardTheme ({like, NLike, theme, category, image }) {
 
     const categoryImage = (category) => {
         switch(category) {
-            case 'etude':
-                return <i className="fa-solid fa-graduation-cap"></i>
+            case 'étude':
+                return <i className={"fa-solid fa-graduation-cap"}></i>
             case 'jeux vidéo':
-                return <i className="fa-solid fa-gamepad"></i>
+                return <i className={"fa-solid fa-gamepad"}></i>
             case 'film et série':
-                return <i className="fa-solid fa-film"></i>
+                return <i className={"fa-solid fa-film"}></i>
             case 'manga': 
-                return <i className="fa-solid fa-book"></i>
+                return <i className={"fa-solid fa-book"}></i>
             case 'métier':
-               return <i className="fa-solid fa-briefcase"></i>
+               return <i className={"fa-solid fa-briefcase"}></i>
             default:
                 return <div>erreur</div>      
             }
     }
 
     return (
-        <div className={`${styles.cardContent}`} style={{backgroundImage: `url(${image})`}}>
-            <div className={`${styles.favoris}`} onClick={handleClick} >
+        <div className={styles.cardContent} 
+            style={{backgroundImage: `url(${image})`}}
+            onClick={handleClick}
+        >
+            <div className={`${styles.favorite}`}>
                 {
                     favourite !== true ? 
                         (
-                            <i className="fa-solid fa-star"></i>
+                            <i className={"fa-solid fa-star"}></i>
                         ) :   
                         (
-                            <i className="fa-regular fa-star"></i>
+                            <i className={"fa-regular fa-star"}></i>
                         )
                 }
                 
