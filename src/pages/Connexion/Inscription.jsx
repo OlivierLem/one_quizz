@@ -88,24 +88,26 @@ export function Inscription ({handleRemove}) {
                 <input {...register('email')} onInput={handleInput} type="text" name="email"  />
                 <label htmlFor="email">Email</label>
             </div>
-                {errors?.email && <p>{errors.email.message}</p> }
+                {errors?.email && <p className={styles.errorMessage}>{errors.email.message}</p> }
             <div>
                 <input {...register('pseudo_inscription')} onInput={handleInput} type="text" name="pseudo_inscription" />
                 <label htmlFor="pseudo_inscription">Pseudo</label>
             </div>
-                {errors?.pseudo_inscription &&  <p>{errors.pseudo_inscription.message}</p>}
+                {errors?.pseudo_inscription &&  <p className={styles.errorMessage}>{errors.pseudo_inscription.message}</p>}
             <div>
                 <input {...register('password_inscription')} onInput={handleInput} type="password" name="password_inscription" />
                 <label htmlFor="password_inscription">Mots de passe</label>
             </div>
-                {errors?.password_inscription &&  <p>{errors.password_inscription.message}</p>} 
+                {errors?.password_inscription &&  <p className={styles.errorMessage}>{errors.password_inscription.message}</p>} 
             <div>
                 <input {...register('confirm_password')} onInput={handleInput} type="password" name="confirm_password" />
                 <label htmlFor="confirm_password">confirmation mots de passe</label>
             </div>
-                {errors?.confirm_password &&  <p>{errors.confirm_password.message}</p>}
-                {errors.generic && <p>{errors.generic.message}</p>}
-            
+                {errors?.confirm_password &&  <p className={styles.errorMessage}>{errors.confirm_password.message}</p>}
+                {errors.generic && <p className={styles.errorMessage}>{errors.generic.message}</p>}
+            <div className={styles.acceptCondition}>
+                <p>En créant un compte, j'accepte les <a href="#"> conditions d'utilisation</a></p>
+            </div>
             <button>S'inscrire</button> 
         </form>
     )

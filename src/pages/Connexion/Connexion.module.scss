@@ -2,7 +2,7 @@
     position: relative;
     width: fit-content;
     height: 100%;
-    margin-block: 10%;
+    margin-block: 5rem;
     margin-inline: auto;
     border-radius: .5rem;
     overflow: hidden;
@@ -22,7 +22,7 @@
         h3 {
             font-size: 2.2rem;
         }
-        p {
+        p.errorMessage {
             position: relative;
             margin-top: -1rem;
             margin-bottom: 0rem;
@@ -34,7 +34,7 @@
             color: var(--error);
         }
 
-        p::before {
+        p.errorMessage::before {
             content: '❌';
             position: absolute;
             top: 0;
@@ -175,7 +175,7 @@
         transform: translateX(1rem);
         transition: transform ease-in .2s;
         z-index: 20;
-        p {
+        p.errorMessage {
             color: black;
             margin-left: 4rem;
         }
@@ -281,6 +281,31 @@ div.active {
         span {
             display: none;
             opacity: 0;
+        }
+    }
+}
+
+.acceptCondition {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+
+    p {
+        text-align: center;
+        width: 80%;
+        font-size: 1rem;
+        color: white;
+        padding-inline: 1rem;
+        margin: 0;
+    }
+
+    a {
+        text-decoration: underline;
+        color: white;
+
+        &::before {
+            display: none;
         }
     }
 }

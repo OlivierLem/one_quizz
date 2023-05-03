@@ -96,12 +96,12 @@ export default function Connexion () {
                         <input {...register('pseudo')} onInput={handleInput} type="text" name="pseudo" />
                         <label htmlFor="pseudo">Pseudo</label>
                         </div>
-                        {errors?.pseudo && <p>{errors.pseudo.message}</p> }
+                        {errors?.pseudo && <p className={styles.errorMessage}>{errors.pseudo.message}</p> }
                         <div>
                             <input {...register('password')} onInput={handleInput} type="password" name="password"  />
                             <label htmlFor="password">Mots de passe</label>
                         </div>
-                            {errors?.password && <p>{errors.password.message}</p> }
+                            {errors?.password && <p className={styles.errorMessage}>{errors.password.message}</p> }
 
                         <span>
                             <input {...register('stayConnected')} type="checkbox" name="stayConnected" />
@@ -111,7 +111,7 @@ export default function Connexion () {
                             <button type='button' className={styles.notRegister} onClick={handleClick}>Pas encore inscrit</button>
                             <a href='#'>Mots de passe oublié ?</a>
                         </div>
-                        {errors.generic && ( <p>{errors.generic.message}</p> )}
+                        {errors.generic && ( <p className={styles.errorMessage}>{errors.generic.message}</p> )}
                         
                         <button disabled={isSubmitting} >Se connecter</button> 
                     </form>
