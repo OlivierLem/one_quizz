@@ -26,7 +26,8 @@ export function Inscription ({handleRemove}) {
             .min(4, 'Le mdp doit avoir plus de 4 charactéres')
             .matches(/[0-9]/, "Le mdp n'as pas de chiffre")
             .matches(/[a-z]/, "Le mdp n'as pas de lettre en minuscule")
-            .matches(/[A-Z]/, "Le mdp n'as pas de lettre en majuscule"),
+            .matches(/[A-Z]/, "Le mdp n'as pas de lettre en majuscule")
+            .matches(/[-+!*$@%_]/, "Le mdp n'as pas de caractéres spéciaux"),
         confirm_password: yup
             .string()
             .required('Ce champ est vide')
