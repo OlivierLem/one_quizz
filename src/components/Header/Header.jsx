@@ -29,7 +29,7 @@ export default function Header () {
                             <span className={`${styles.active}`}>
                                 <NavLink to='/creer_quizz'>Créer un quizz</NavLink>
                                 <NavLink to='/creer_cours'>Créer un cours</NavLink>
-                                <NavLink to='/creer'>Créer une question</NavLink>
+                                <NavLink to='/creer_question'>Créer une question</NavLink>
                                 <NavLink to='/demande_favoris'>Demande favoris</NavLink>
                                 <NavLink to='/creation'>Voir vos création</NavLink>
                             </span>

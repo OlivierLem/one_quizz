@@ -4,7 +4,8 @@
     justify-content: center;
     margin: 3rem auto 5rem;
     width: 100%;
-    max-width: 1200px;
+    max-width: 1300px;
+    padding: 2rem;
 }
 
 .titleBlock {
@@ -58,6 +59,19 @@
     margin-bottom: 3rem;
 }
 
+@media screen and (max-width: 750px) {
+    .paramsBlock {
+        flex-direction: column;
+        padding: .5rem;
+    }
+}
+
+@media screen and (max-width: 530px) {
+    .paramsBlock .filterThemes input {
+        order: 2;
+    }
+}
+
 .paramsBlock div {
     display: flex;
     justify-content: center;
@@ -65,8 +79,9 @@
 }
 
 .paramsBlock .filterThemes {
-    gap: 2rem;
-
+    flex-wrap: wrap;
+    gap:0 2rem;
+    
     Input {
         padding-inline: 1rem;
         background-color: transparent;
@@ -100,10 +115,17 @@
 .themeList {
     display: grid;
     place-content: center;
-    grid-template-columns: repeat(3, 33.3%);
-    grid-auto-columns: repeat(3, 33.3%);
+    justify-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(20rem,1fr));
     gap: 4rem 3rem;
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
     margin-bottom: 5rem;
+}
+
+.themeList > div {
+    width: 20rem;
 }
 
 .notThemes {

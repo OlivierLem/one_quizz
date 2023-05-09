@@ -58,3 +58,63 @@
         right: 100%;
     }
 }
+
+.createContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    max-width: 1200px;
+    padding: 3rem 5rem;
+    margin: 4rem auto;
+    border-radius: .5rem;
+    font-weight: 500;
+    background-color: var(--background-blue);
+    color: var(--text-blue);
+}
+
+.createContainer h1 {
+    margin-bottom:  2rem;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    height: fit-content;
+}   
+
+.firstStep .form-question {
+    display: none;
+}
+
+.secondStep .form-params{
+    display: none;
+}
+
+p.errorMessage {
+    position: relative;
+    margin: .5rem 0 .8rem;
+    padding-left: 2rem;
+    margin-left: 0;
+    font-size: 1rem;
+    font-weight: 600;
+    align-self: flex-start;
+    color: var(--error);
+}
+
+p.errorMessage::before {
+    content: '❌';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: .8rem;
+    height: 100%;
+}
+
+.form-params-state {
+    display: flex;
+    justify-content: space-evenly;
+}

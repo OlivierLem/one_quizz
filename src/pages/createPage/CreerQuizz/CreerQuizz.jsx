@@ -1,4 +1,4 @@
-import styles from './CreerQuizz.module.scss'
+import '../CreatePages.scss'
 import { useState } from "react"
 
 export function CreerQuizz () {
@@ -75,7 +75,7 @@ export function CreerQuizz () {
                             </div>
                         </div>
                         <div>
-                            <label >Nombre de qustion</label>
+                            <label >Nombre de question</label>
                             <select>
                                 <option value="1">1</option>
                                 <option value="2">2</option>

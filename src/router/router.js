@@ -1,15 +1,19 @@
 import { createBrowserRouter } from "react-router-dom";
 import App from '../App';
+import ProtectedRoute from "../components/ProtectedRoute/ProtectedRoute";
+
+// Pages //
+
 import Acceuil from "../pages/Acceuil/Acceuil";
 import Connexion from "../pages/Connexion/Connexion";
 import Qcm from "../pages/Qcm/Qcm";
-import ErrorPage from "../pages/ErrorPage/ErrorPage";
-import CreerCours from "../pages/CreerCours/CreerCours";
-import { CreerQuizz } from "../pages/CreerQuizz/CreerQuizz";
+import ErrorPage from "../pages/ErrorPage/ErrorPage"; 
+import CreerCours from "../pages/createPage/CreerCours/CreerCours";
+import { CreerQuizz } from "../pages/createPage/CreerQuizz/CreerQuizz";
 import { userLoader } from '../loaders/userLoader'
 import ProfilPage from "../pages/ProfilPage/ProfilPage";
-import ProtectedRoute from "../components/ProtectedRoute/ProtectedRoute";
 import ThemesPage from "../pages/ThemesPage/ThemesPage";
+import { CreateQuestion } from "../pages/createPage/CreateQuestion/CreateQuestion";
 
 const qcmData = {
     question: "Quelle est la langue utilisé ?",
@@ -60,6 +64,10 @@ export const router = createBrowserRouter([
             {
               path: '/creer_quizz',
               element: <CreerQuizz />
+            },
+            {
+              path: '/creer_question',
+              element: <CreateQuestion />
             },
             {
               path: '/creer_cours',
