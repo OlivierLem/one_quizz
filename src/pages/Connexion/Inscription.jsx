@@ -3,8 +3,11 @@ import { useForm } from 'react-hook-form'
 import * as yup from 'yup'
 import { yupResolver } from "@hookform/resolvers/yup";
 import { createUser } from '../../apis/user.js';
+import { useRef } from 'react';
 
 export function Inscription ({handleRemove}) {
+
+    const formRef = useRef();
 
     const defaultValues = {
         pseudo_inscription: '',
@@ -50,6 +53,7 @@ export function Inscription ({handleRemove}) {
         try {
             clearErrors();
             await createUser(values);
+            formRef.current.reset()
             handleRemove()
         } catch (message) {
             console.error(message)
@@ -59,7 +63,6 @@ export function Inscription ({handleRemove}) {
 
     function clossInscripion (e) {
         e.stopPropagation()
-        document.querySelector('.formInscription').reset();
         const labels = document.querySelectorAll('label');
         for (const label of labels) {
             label.classList.remove(`${styles.active}`)
@@ -80,7 +83,7 @@ export function Inscription ({handleRemove}) {
     //! bug pseudo et password handleInput
 
     return (
-        <form action="" className={'formInscription'} onSubmit={submitInscription}>
+        <form action="" ref={formRef} className={'formInscription'} onSubmit={submitInscription}>
             <h3>Inscription</h3>
             <i  className={`fa-solid fa-xmark ${styles.cross}`}
                 onClick={clossInscripion}>

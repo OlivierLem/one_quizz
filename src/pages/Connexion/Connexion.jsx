@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect, useRef, useState } from 'react'
 import styles from './Connexion.module.scss'
 import { useForm } from 'react-hook-form'
 import * as yup from 'yup'
@@ -11,6 +11,7 @@ export default function Connexion () {
 
     const { signin, user} = useContext(AuthContext)
     const [reveal, setReveal] = useState(false)
+    const formRef = useRef()
 
     const defaultValues = {
         pseudo: '',
@@ -40,7 +41,6 @@ export default function Connexion () {
 
     const [queryParams, setQueryParams] = useSearchParams();
     function handleClick () {
-        document.querySelector('.form').reset();
         const labels = document.querySelectorAll('.form label');
         for (const label of labels) {
             label.classList.remove(`${styles.active}`)
@@ -69,6 +69,7 @@ export default function Connexion () {
         try {
             clearErrors();
             await signin(values);
+            formRef.current.reset()
         } catch (message) {
             setError('generic', {type: 'generic', message})
         }
@@ -90,7 +91,7 @@ export default function Connexion () {
                 <Navigate to='/' />
             ) : (
                 <div className={` ${styles.connexion} ${reveal && styles.active}`}>
-                    <form action="" className={`form ${styles.connexionForm}`} onSubmit={submit}>
+                    <form action="" ref={formRef} className={`form ${styles.connexionForm}`} onSubmit={submit}>
                         <h3>Connexion au compte</h3>
                         <div>
                         <input {...register('pseudo')} onInput={handleInput} type="text" name="pseudo" />
