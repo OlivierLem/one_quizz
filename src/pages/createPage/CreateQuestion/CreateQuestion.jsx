@@ -12,7 +12,6 @@ export function CreateQuestion () {
     const [step, setStep] = useState(1)
     const [showQuestion, setShowQuestion] = useState(false)
     const formRef = useRef();
-    const { user } = useContext(AuthContext)
     const navigate = useNavigate()
 
     const defaultValues = {
@@ -20,7 +19,7 @@ export function CreateQuestion () {
         theme: 'histoire',
         times: '25',
         status: 'privé',
-        question: 'qui-est-ce',
+        question: '',
         responses: []
     }
 
@@ -69,7 +68,7 @@ export function CreateQuestion () {
         try {
             clearErrors();
             await addQuestion(values)
-            //navigate('/')
+            navigate('/')
 
         } catch (message) {
             console.error(message)
@@ -93,16 +92,12 @@ export function CreateQuestion () {
         return nResponses
     }
 
-    console.log(user);
-
     return (
         <>
-        {user === null ? (
-            <Navigate to='/' />
-        ) : (<div className='createContainer'>
+        <div className='createContainer'>
             <h1>Créer une question</h1>
-            <>
-                {/* <div className={'stepCreate'}>
+            
+            <div className={'stepCreate'}>
                 <div className={'active'}>
                     <span data-status='Paramétres'>1</span>
                     <span></span>
@@ -110,9 +105,7 @@ export function CreateQuestion () {
                 <div className={ step >= 2 ? 'active' : ''}>
                     <span data-status='Question'>2</span>
                 </div>
-            </div> */}
-
-            </>
+            </div>
             
             <form 
               ref={formRef}
@@ -141,42 +134,42 @@ export function CreateQuestion () {
                         {errors?.times &&  <p className={'errorMessage'}>{errors.times.message}</p>}
 
                     <div className='form-params-state'>
-                       {/*  <div>
-                            <input type="image" src="../../assets/images/insert-picture-icon.png" width='50'  />
-                            <label htmlFor="">Image Question</label>
-                        </div> */}
                         <div>
-                            <input {...register('status')} type="radio" value='privé' name="status" />
-                            <label >Privé</label>
+                            {/* <input type="image" src="../../assets/images/insert-picture-icon.png" width='50'  /> */}
+                            <label htmlFor="">Image Question</label>
                         </div>
                         <div>
-                            <input {...register('status')} type="radio" value='public' name="status" />
-                            <label htmlFor="status">Public</label>
+                            <div>
+                                <input {...register('status')} type="radio" value='privé' name="status" />
+                                <label >Privé</label>
+                            </div>
+                            <div>
+                                <input {...register('status')} type="radio" value='public' name="status" />
+                                <label htmlFor="status">Public</label>
+                            </div>
                         </div>
                     </div>
                     
-                    <button type='button' onClick={handleClick}>Suivant</button>
+                    <button type='button' className='nextButton' onClick={handleClick}>Suivant <i className={"fa-solid fa-arrow-right"}></i></button>
                 </div>
 
                 {showQuestion === true &&
                     (
                         <div className='form-question'>
-                            <div className="questionBlock">
-                                <label htmlFor="question">Question</label>
-                                <input {...register('question')} type="text" name='question' />
-                            </div>
+                            <input {...register('question')} className='questionBlock' type="text" name='question' placeholder='Question' />
                             {errors?.question &&  <p className={'errorMessage'}>{errors.question.message}</p>}
 
                             <div className="reponsesBlock">
-                            
-                                {
-                                    renderQuestion(4)
-                                }
-                            
+                                <p>Réponses</p>
+                                <div>
+                                    {
+                                        renderQuestion(4)
+                                    }
+                                </div>
                             </div>
 
-                            <div>
-                                <button type='button' onClick={() => setStep(1)}>Precédent</button>
+                            <div className='navButton'>
+                                <button type='button' className='previousButton' onClick={() => setStep(1)}><i className={"fa-solid fa-arrow-left"}></i> Precédent</button>
                                 <button type='submit'>Terminer la création</button>
                             </div>
                         </div>
@@ -184,7 +177,7 @@ export function CreateQuestion () {
                 }
             </form>
               
-        </div>)}
+        </div>
         </>
     )
 }

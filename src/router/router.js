@@ -63,15 +63,29 @@ export const router = createBrowserRouter([
             },
             {
               path: '/creer_quizz',
-              element: <CreerQuizz />
+              element: (
+              <ProtectedRoute>
+                <CreerQuizz />
+              </ProtectedRoute>
+              
+              )
             },
             {
               path: '/creer_question',
-              element: <CreateQuestion />
+              element: (
+              <ProtectedRoute>
+                <CreateQuestion />
+              </ProtectedRoute>
+              
+              )
             },
             {
               path: '/creer_cours',
-              element: <CreerCours title='cours de conjugaison' />
+              element: (
+              <ProtectedRoute>
+                <CreerCours title='cours de conjugaison' />
+              </ProtectedRoute>
+              )
             },
             {
               path: '/profile',
@@ -83,7 +97,11 @@ export const router = createBrowserRouter([
             },
             {
               path: '/question',
-              element: <QuestionPage />
+              element: (
+                <ProtectedRoute>
+                  <QuestionPage />
+                </ProtectedRoute>
+              )
             }
             /* {
                 path: '/groupes',

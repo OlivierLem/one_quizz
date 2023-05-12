@@ -1,8 +1,51 @@
+.createContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    max-width: 1200px;
+    padding: 2rem 5rem;
+    margin: 4rem auto;
+    border-radius: .5rem;
+    font-weight: 500;
+    background-color: var(--background-blue);
+    color: var(--text-blue);
+    outline: solid 2px var(--dark-blue);
+    outline-offset: 5px;
+}
+
+.createContainer h1 {
+    position: relative;
+    margin-bottom:  1rem;
+    text-align: center;
+
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        width: 60%;
+        height: 4px;
+        top: 50%;
+        border-radius: 1rem;
+        translate: 0 -50%;
+        background-color: var(--text-blue);
+    }
+    &::before {
+        right: calc(100% + 20px);
+    }
+    &::after {
+        left: calc(100% + 20px);
+    }
+}
+
 .stepCreate {
     display: flex;
     justify-content: center;
     align-items: center;
-
+    padding: 2rem 2rem 0;
+    margin: 0;
+    margin-bottom: 2rem;
     & > div {
         display: flex;
         justify-content: center;
@@ -13,25 +56,27 @@
         position: relative;
         justify-content: center;
         align-items: center;
-        background-color: var(--light-blue);
-        color: white;
+        background-color: white;
+        color: var(--text-blue);
         font-size: 1rem;
         width: 10px;
         height: 10px;
         border-radius: 50%;
     }
     div.active span {
+        color: white;
         background-color: var(--dark-primary);
     }
     span[data-status] {
-        width: 2rem;
-        height: 2rem;
+        width: 1.5rem;
+        height: 1.5rem;
     }
     span[data-status]::before {
         content: attr(data-status);
         position: absolute;
-        top: -2rem;
-        left: -50%;
+        top: -1.5rem;
+        left: 50%;
+        translate: -50% 0;
         color: var(--dark-primary);
     }
 
@@ -59,36 +104,124 @@
     }
 }
 
-.createContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 80%;
-    max-width: 1200px;
-    padding: 3rem 5rem;
-    margin: 4rem auto;
-    border-radius: .5rem;
-    font-weight: 500;
-    background-color: var(--background-blue);
-    color: var(--text-blue);
-}
-
-.createContainer h1 {
-    margin-bottom:  2rem;
-}
-
 form {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: fit-content;
+    width: 100%;
     height: fit-content;
+    font-size: 1.3rem;
 }   
+
+form > div {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    height: 100%;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.form-params > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
 .firstStep .form-question {
     display: none;
 }
+
+.form-params select {
+    width: 40%;
+    height: 100%;
+    padding: .5rem .3rem;
+    border: none;
+    border-right: solid 6px white;
+    border-radius: 5px;
+    font: bold 1rem var(--font-family);
+    color: var(--text-blue);
+}
+
+.form-params input[type= 'text'] {
+    position: relative;
+    width: 40%;
+    height: 100%;
+    padding: .5rem ;
+    border: none;
+    border-radius: 5px;
+    font: bold 1rem var(--font-family);
+    color: var(--text-blue);
+    background-color: #fff;
+
+}
+
+.form-params-state {
+    display: flex;
+    align-self: space-betweem;
+    gap: 2rem;
+}
+
+.form-params-state > div:last-of-type {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-right: 1rem;
+}
+
+form button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: .5rem 1rem;
+    font-size: 1.3rem;
+    border-radius: 10px;
+    background-color: var(--dark-primary);
+    border: none;
+    transition: background-color ease-in-out .25s;
+
+      
+    &:hover {
+        background-color: var(--primary);
+    }
+
+    i {
+        font-size: 1rem;
+        translate: 1rem 0;
+        transition: translate ease-in-out .25s;
+    }
+
+    &.nextButton:hover i {
+        translate: 1.5rem;
+    }
+    
+    &.previousButton {
+        font-weight: bold;
+        color: var(--dark-gray);
+        background-color: transparent;
+        border: solid 2px var(--dark-gray);
+        transition: background-color ease-in-out .25s, 
+                    color ease-in-out .25s;
+    }
+
+    &.previousButton:hover {
+        background-color: var(--dark-gray);
+        color: white;
+    } 
+
+    &.previousButton i {
+        translate: -1rem 0;
+    }
+
+    &.previousButton:hover i {
+        translate: -1.5rem;
+    }
+
+    
+}
+
 
 .secondStep .form-params{
     display: none;
@@ -117,4 +250,89 @@ p.errorMessage::before {
 .form-params-state {
     display: flex;
     justify-content: space-evenly;
+}
+
+.navButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.navButton > button {
+    width: 50%;
+}
+.form-question {
+    width: 100%;
+}
+.form-question input{
+    color: var(--dark-primary);
+    font-weight: bold;
+    padding: .5rem 1rem;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 6px;
+    &::placeholder {
+        color: var(--light-blue);
+    }
+}
+
+$sizeLineReponse: 25vw;
+
+.reponsesBlock p{
+    position: relative;
+    width: fit-content;
+    margin: auto;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    text-align: center;
+
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        width: $sizeLineReponse;
+        height: 2px;
+        top: 50%;
+        border-radius: 1rem;
+        translate: 0 -50%;
+        background-color: var(--text-blue);
+    }
+    &::before {
+        left: calc(($sizeLineReponse * -1) - 35px);
+    }
+    &::after {
+        right: calc(($sizeLineReponse * -1) - 35px);
+    }
+}
+
+.reponsesBlock {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.reponsesBlock > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: auto;
+}
+
+.reponsesBlock > div > div {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: fit-content;
+    gap: .5rem;
+}
+
+.reponsesBlock > div input[type="text"] {
+    flex-grow: 1;
+    width: 15rem;
 }
