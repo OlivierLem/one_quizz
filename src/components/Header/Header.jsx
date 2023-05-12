@@ -31,7 +31,7 @@ export default function Header () {
                                 <NavLink to='/creer_cours'>Créer un cours</NavLink>
                                 <NavLink to='/creer_question'>Créer une question</NavLink>
                                 <NavLink to='/demande_favoris'>Demande favoris</NavLink>
-                                <NavLink to='/creation'>Voir vos création</NavLink>
+                                <NavLink to='/question'>Voir vos création</NavLink>
                             </span>
                         </div>
                         

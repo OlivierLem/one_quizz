@@ -8,8 +8,8 @@ export default function ThemesPage () {
     const [themes, setThemes] = useState([])
 
     useEffect(() => {
-        getThemes().then(themes => {
-            setThemes(themes)
+        getThemes().then(t => {
+            setThemes(t)
         })
         console.log(themes);
     },[])

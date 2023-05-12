@@ -11,3 +11,9 @@ export async function addQuestion(value) {
     console.log(response);
     return response.json();
 }
+
+export async function getQuestion() {
+    const response = await fetch(`${API_QUESTIONS}`)
+    console.log(response.json);
+    return response.json();
+}

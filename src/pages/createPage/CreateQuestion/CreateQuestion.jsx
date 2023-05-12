@@ -1,15 +1,19 @@
 import '../CreatePages.scss'
-import { useRef, useState } from "react"
+import { useContext, useRef, useState } from "react"
 import { useForm } from 'react-hook-form'
 import * as yup from 'yup'
 import { yupResolver } from "@hookform/resolvers/yup";
 import { addQuestion } from '../../../apis/question';
+import { Navigate, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../../context/AuthContext';
 
 export function CreateQuestion () {
 
     const [step, setStep] = useState(1)
     const [showQuestion, setShowQuestion] = useState(false)
     const formRef = useRef();
+    const { user } = useContext(AuthContext)
+    const navigate = useNavigate()
 
     const defaultValues = {
         type: 'qcm',
@@ -60,18 +64,13 @@ export function CreateQuestion () {
         })
     }
 
-    const resetFormQuestion = () => {
-        formRef.current.reset()
-        setShowQuestion(false)
-        setStep(1)
-    }
-
     const submit = handleSubmit (async (values) => {
         console.log(values);
         try {
             clearErrors();
             await addQuestion(values)
-            resetFormQuestion()
+            //navigate('/')
+
         } catch (message) {
             console.error(message)
             setError('generic', {type: "generic", message})
@@ -94,8 +93,13 @@ export function CreateQuestion () {
         return nResponses
     }
 
+    console.log(user);
+
     return (
-        <div className='createContainer'>
+        <>
+        {user === null ? (
+            <Navigate to='/' />
+        ) : (<div className='createContainer'>
             <h1>Créer une question</h1>
             <>
                 {/* <div className={'stepCreate'}>
@@ -122,12 +126,12 @@ export function CreateQuestion () {
                         </select>
                     </div>
                     <div>
-                        <label htmlFor="themes">Thémes</label>
-                        <select {...register('theme')} name="themes" >
+                        <label htmlFor="theme">Thémes</label>
+                        <select {...register('theme')} name="theme" >
                             <option value="histoire">Histoire</option>
                             <option value="mathematique">Mathématique</option>
-                            <option value="geographie">Géographie</option>
-                            <option value="roquet_league">Rocket League</option>
+                            <option value="géographie">Géographie</option>
+                            <option value="rocket league">Rocket League</option>
                         </select>
                     </div>
                     <div>
@@ -180,6 +184,7 @@ export function CreateQuestion () {
                 }
             </form>
               
-        </div>
+        </div>)}
+        </>
     )
 }

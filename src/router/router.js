@@ -14,6 +14,7 @@ import { userLoader } from '../loaders/userLoader'
 import ProfilPage from "../pages/ProfilPage/ProfilPage";
 import ThemesPage from "../pages/ThemesPage/ThemesPage";
 import { CreateQuestion } from "../pages/createPage/CreateQuestion/CreateQuestion";
+import { QuestionPage } from "../pages/QuestionPage/QuestionPage";
 
 const qcmData = {
     question: "Quelle est la langue utilisé ?",
@@ -80,6 +81,10 @@ export const router = createBrowserRouter([
               </ProtectedRoute>
               ),
             },
+            {
+              path: '/question',
+              element: <QuestionPage />
+            }
             /* {
                 path: '/groupes',
                 element: <GroupesPage />
