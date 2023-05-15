@@ -16,7 +16,7 @@ import ThemesPage from "../pages/ThemesPage/ThemesPage";
 import { CreateQuestion } from "../pages/createPage/CreateQuestion/CreateQuestion";
 import { QuestionPage } from "../pages/QuestionPage/QuestionPage";
 
-const qcmData = {
+const qcmData = [{
     question: "Quelle est la langue utilisé ?",
     reponses: [
       {
@@ -35,8 +35,53 @@ const qcmData = {
         reponse: 'Allemand',
         isCorrect: false
       }
-    ] 
-  }
+    ],
+    theme: 'mathématique'
+  },
+  {
+    question: "prénom ?",
+    reponses: [
+      {
+        reponse: 'John',
+        isCorrect: true
+      },
+      {
+        reponse: 'jane',
+        isCorrect: false
+      },
+      {
+        reponse: 'james',
+        isCorrect: false
+      },
+      {
+        reponse: 'jimmy',
+        isCorrect: false
+      }
+    ],
+    theme: 'géographie'
+  },  
+  { question: "question 3 ?",
+    reponses: [
+      {
+        reponse: 'Réponse 1',
+        isCorrect: false
+      },
+      {
+        reponse: 'Réponse 2',
+        isCorrect: false
+      },
+      {
+        reponse: 'Réponse 3',
+        isCorrect: false
+      },
+      {
+        reponse: 'Réponse 4',
+        isCorrect: true
+      }
+    ],
+    theme: 'histoire'
+  },  
+]
 
 export const router = createBrowserRouter([
     {
@@ -55,7 +100,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/quizz',
-                element: <Qcm qcm={qcmData} timer='5' />
+                element: <Qcm qcm={qcmData} timer='33' />
             },
             {
               path: '/themes',
